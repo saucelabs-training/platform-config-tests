@@ -1,11 +1,13 @@
-package com.saucelabs.platformconfigurator.se3legacy;
+package com.saucelabs.platformconfigurator.se4w3c;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariOptions;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -15,51 +17,59 @@ public class SafariTest {
     String username = System.getenv("SAUCE_USERNAME");
     String accessKey = System.getenv("SAUCE_ACCESS_KEY");
     String sauceUrl = "https://" + username + ":" + accessKey + "@ondemand.us-west-1.saucelabs.com/wd/hub";
-    DesiredCapabilities caps = DesiredCapabilities.safari();
+    MutableCapabilities sauceOptions = new MutableCapabilities();
+    SafariOptions browserOptions = new SafariOptions();
 
     @DisplayName("latest Yosemite")
     @Test
     public void latestYosemite(TestInfo testInfo) {
-        caps.setCapability("platform", "OS X 10.10");
-        caps.setCapability("version", "latest");
+        browserOptions.setCapability("platformName", "OS X 10.10");
+        browserOptions.setCapability("browserVersion", "latest");
+        browserOptions.setCapability("sauce:options", sauceOptions);
 
-        startDriver(testInfo, caps);
+        startDriver(testInfo, browserOptions);
         validateGoogle();
     }
 
     @DisplayName("Yosemite")
     @Test
     public void lateYosemite(TestInfo testInfo) {
-        caps.setCapability("platform", "OS X 10.10");
-        caps.setCapability("version", "8");
+        browserOptions.setCapability("platformName", "OS X 10.10");
+        browserOptions.setCapability("browserVersion", "8");
+        browserOptions.setCapability("sauce:options", sauceOptions);
 
-        startDriver(testInfo, caps);
+        startDriver(testInfo, browserOptions);
         validateGoogle();
     }
 
     @DisplayName("latest Big Sur")
     @Test
     public void latestBigSur(TestInfo testInfo) {
-        caps.setCapability("platform", "OS X 11.00");
-        caps.setCapability("version", "latest");
+        browserOptions.setCapability("platformName", "macOS 11.00");
+        browserOptions.setCapability("browserVersion", "latest");
+        browserOptions.setCapability("sauce:options", sauceOptions);
 
-        startDriver(testInfo, caps);
+        startDriver(testInfo, browserOptions);
         validateGoogle();
     }
 
     @DisplayName("Big Sur")
     @Test
     public void lateBigSur(TestInfo testInfo) {
-        caps.setCapability("platform", "OS X 11.00");
-        caps.setCapability("version", "14");
+        browserOptions.setCapability("platformName", "macOS 11.00");
+        browserOptions.setCapability("browserVersion", "14");
+        browserOptions.setCapability("sauce:options", sauceOptions);
 
-        startDriver(testInfo, caps);
+        startDriver(testInfo, browserOptions);
         validateGoogle();
     }
 
-    public void startDriver(TestInfo testInfo, DesiredCapabilities caps) {
-        caps.setCapability("name", testInfo.getDisplayName());
+    @BeforeEach
+    public void setName(TestInfo testInfo) {
+        sauceOptions.setCapability("name", testInfo.getDisplayName());
+    }
 
+    public void startDriver(TestInfo testInfo, MutableCapabilities caps) {
         try {
             driver = new RemoteWebDriver(new URL(sauceUrl), caps);
         } catch (MalformedURLException e) {
