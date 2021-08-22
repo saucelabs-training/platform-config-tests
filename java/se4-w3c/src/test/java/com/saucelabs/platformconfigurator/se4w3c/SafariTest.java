@@ -17,45 +17,45 @@ public class SafariTest extends AbstractBaseTest {
 
     @DisplayName("latest Yosemite")
     @Test
-    public void latestYosemite(TestInfo testInfo) {
+    public void latestYosemite() {
         browserOptions.setCapability("platformName", "OS X 10.10");
         browserOptions.setCapability("browserVersion", "latest");
         browserOptions.setCapability("sauce:options", sauceOptions);
 
-        startDriver(testInfo, browserOptions);
+        startDriver(browserOptions);
         validateGoogle();
     }
 
     @DisplayName("Yosemite")
     @Test
-    public void lateYosemite(TestInfo testInfo) {
+    public void lateYosemite() {
         browserOptions.setCapability("platformName", "OS X 10.10");
         browserOptions.setCapability("browserVersion", "8");
         browserOptions.setCapability("sauce:options", sauceOptions);
 
-        startDriver(testInfo, browserOptions);
+        startDriver(browserOptions);
         validateGoogle();
     }
 
     @DisplayName("latest Big Sur")
     @Test
-    public void latestBigSur(TestInfo testInfo) {
+    public void latestBigSur() {
         browserOptions.setCapability("platformName", "macOS 11.00");
         browserOptions.setCapability("browserVersion", "latest");
         browserOptions.setCapability("sauce:options", sauceOptions);
 
-        startDriver(testInfo, browserOptions);
+        startDriver(browserOptions);
         validateGoogle();
     }
 
     @DisplayName("Big Sur")
     @Test
-    public void lateBigSur(TestInfo testInfo) {
+    public void lateBigSur() {
         browserOptions.setCapability("platformName", "macOS 11.00");
         browserOptions.setCapability("browserVersion", "14");
         browserOptions.setCapability("sauce:options", sauceOptions);
 
-        startDriver(testInfo, browserOptions);
+        startDriver(browserOptions);
         validateGoogle();
     }
 }

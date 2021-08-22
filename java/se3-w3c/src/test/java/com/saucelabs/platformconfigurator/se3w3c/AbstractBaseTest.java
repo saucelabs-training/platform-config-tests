@@ -1,4 +1,4 @@
-package com.saucelabs.platformconfigurator.se4w3c;
+package com.saucelabs.platformconfigurator.se3w3c;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

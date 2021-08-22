@@ -1,9 +1,7 @@
-package com.saucelabs.platformconfigurator.se4w3c;
+package com.saucelabs.platformconfigurator.se2legacy;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.TestInfo;
-import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -13,15 +11,8 @@ public class AbstractBaseTest {
     String username = System.getenv("SAUCE_USERNAME");
     String accessKey = System.getenv("SAUCE_ACCESS_KEY");
     String sauceUrl = "https://" + username + ":" + accessKey + "@ondemand.us-west-1.saucelabs.com/wd/hub";
-    MutableCapabilities sauceOptions = new MutableCapabilities();
 
-    @BeforeEach
-    public void setName(TestInfo testInfo) {
-        sauceOptions.setCapability("name", testInfo.getDisplayName());
-//        sauceOptions.setCapability("seleniumVersion", "4.0.0-rc");
-    }
-
-    public void startDriver(MutableCapabilities caps) {
+    public void startDriver(DesiredCapabilities caps) {
         try {
             driver = new RemoteWebDriver(new URL(sauceUrl), caps);
         } catch (MalformedURLException e) {
