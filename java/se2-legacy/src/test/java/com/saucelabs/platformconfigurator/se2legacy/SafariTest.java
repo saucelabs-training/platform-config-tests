@@ -14,33 +14,11 @@ public class SafariTest extends AbstractBaseTest{
         caps.setCapability("name", testInfo.getDisplayName());
     }
 
-    // "latest" isn't currently displayed, but "latest-1" is
-    @DisplayName("latest Yosemite")
-    @Test
-    public void latestYosemite() {
-        caps.setCapability("platform", "OS X 10.10");
-        caps.setCapability("version", "latest-1");
-
-        startDriver(caps);
-        validateGoogle();
-    }
-
     @DisplayName("Yosemite")
     @Test
     public void lateYosemite() {
         caps.setCapability("platform", "OS X 10.10");
         caps.setCapability("version", "8");
-
-        startDriver(caps);
-        validateGoogle();
-    }
-
-    // "latest" isn't currently displayed, but "latest-1" is
-    @DisplayName("latest Big Sur")
-    @Test
-    public void latestBigSur() {
-        caps.setCapability("platform", "macOS 11.00");
-        caps.setCapability("version", "latest-1");
 
         startDriver(caps);
         validateGoogle();

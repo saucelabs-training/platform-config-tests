@@ -14,17 +14,6 @@ public class IETest extends AbstractBaseTest{
         caps.setCapability("name", testInfo.getDisplayName());
     }
 
-    // "latest" isn't currently displayed, but "latest-1" is
-    @DisplayName("Latest Windows 10")
-    @Test
-    public void chromeLatestWin10() {
-        caps.setCapability("platform", "Windows 10");
-        caps.setCapability("version", "latest-1");
-
-        startDriver(caps);
-        validateGoogle();
-    }
-
     @DisplayName("Late Windows 10")
     @Test
     public void chromeLateWin10() {

@@ -73,18 +73,6 @@ public class FirefoxTest extends AbstractBaseTest {
         validateGoogle();
     }
 
-    // No compatible versions of Firefox avaialable
-    @DisplayName("latest Yosemite")
-    @Test
-    public void latestYosemite() {
-        browserOptions.setCapability("platformName", "OS X 10.10");
-        browserOptions.setCapability("browserVersion", "latest");
-        browserOptions.setCapability("sauce:options", sauceOptions);
-
-        startDriver(browserOptions);
-        validateGoogle();
-    }
-
     @DisplayName("latest Big Sur")
     @Test
     public void latestBigSur() {

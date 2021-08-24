@@ -52,12 +52,11 @@ public class IETest extends AbstractBaseTest {
     }
 
 
-    // Sauce won't run w3c mode for Windows 9
     @DisplayName("Early Windows 7")
     @Test
     public void earlyWin7() {
         browserOptions.setCapability("platformName", "Windows 7");
-        browserOptions.setCapability("browserVersion", "9");
+        browserOptions.setCapability("browserVersion", "10");
         browserOptions.setCapability("sauce:options", sauceOptions);
 
         startDriver(browserOptions);
