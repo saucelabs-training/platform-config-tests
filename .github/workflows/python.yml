@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: 3.7.10
       - name: Run ${{ matrix.dir }} tests
-        working-directory: ruby/${{ matrix.dir }}
+        working-directory: python/${{ matrix.dir }}
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
