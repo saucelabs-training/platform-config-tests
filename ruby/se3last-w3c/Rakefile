@@ -1,0 +1,14 @@
+# frozen_string_literal: true
+
+require "rspec/core/rake_task"
+
+RSpec::Core::RakeTask.new(:spec)
+
+task default: :spec
+
+ENV['PARALLEL_SPLIT_TEST_PROCESSES'] = '32'
+
+desc 'Run tests in parallel'
+task :parallel do
+  system 'parallel_split_test spec'
+end
