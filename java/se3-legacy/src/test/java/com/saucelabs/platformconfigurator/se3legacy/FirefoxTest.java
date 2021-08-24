@@ -43,6 +43,7 @@ public class FirefoxTest extends AbstractBaseTest {
         startDriver(caps);
         validateGoogle();
     }
+
     @DisplayName("Latest Windows 7")
     @Test
     public void firefoxLatestWin7() {
@@ -73,16 +74,6 @@ public class FirefoxTest extends AbstractBaseTest {
         validateGoogle();
     }
 
-    @DisplayName("latest Linux")
-    @Test
-    public void latestLinux() {
-        caps.setCapability("platform", "Linux");
-        caps.setCapability("version", "latest");
-
-        startDriver(caps);
-        validateGoogle();
-    }
-
     @DisplayName("late Linux")
     @Test
     public void lateLinux() {
@@ -98,16 +89,6 @@ public class FirefoxTest extends AbstractBaseTest {
     public void earlyLinux() {
         caps.setCapability("platform", "Linux");
         caps.setCapability("version", "4");
-
-        startDriver(caps);
-        validateGoogle();
-    }
-
-    @DisplayName("latest Yosemite")
-    @Test
-    public void latestYosemite() {
-        caps.setCapability("platform", "OS X 10.10");
-        caps.setCapability("version", "latest");
 
         startDriver(caps);
         validateGoogle();

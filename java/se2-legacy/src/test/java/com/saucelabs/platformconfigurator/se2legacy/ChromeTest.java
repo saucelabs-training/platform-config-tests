@@ -74,16 +74,6 @@ public class ChromeTest extends AbstractBaseTest {
         validateGoogle();
     }
 
-    @DisplayName("latest Linux")
-    @Test
-    public void latestLinux() {
-        caps.setCapability("platform", "Linux");
-        caps.setCapability("version", "latest");
-
-        startDriver(caps);
-        validateGoogle();
-    }
-
     @DisplayName("late Linux")
     @Test
     public void lateLinux() {

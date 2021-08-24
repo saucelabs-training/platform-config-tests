@@ -24,16 +24,6 @@ public class IETest extends AbstractBaseTest{
         validateGoogle();
     }
 
-    @DisplayName("Latest Windows 7")
-    @Test
-    public void chromeLatestWin7() {
-        caps.setCapability("platform", "Windows 7");
-        caps.setCapability("version", "latest");
-
-        startDriver(caps);
-        validateGoogle();
-    }
-
     @DisplayName("Late Windows 7")
     @Test
     public void chromeLateWin7() {

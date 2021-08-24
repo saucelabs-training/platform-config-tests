@@ -7,33 +7,11 @@ import org.openqa.selenium.ie.InternetExplorerOptions;
 public class IETest extends AbstractBaseTest {
     InternetExplorerOptions browserOptions = new InternetExplorerOptions();
 
-    @DisplayName("Latest Windows 10")
-    @Test
-    public void latestWin10() {
-        browserOptions.setCapability("platformName", "Windows 10");
-        browserOptions.setCapability("browserVersion", "latest");
-        browserOptions.setCapability("sauce:options", sauceOptions);
-
-        startDriver(browserOptions);
-        validateGoogle();
-    }
-
     @DisplayName("Windows 10")
     @Test
     public void lateWin10() {
         browserOptions.setCapability("platformName", "Windows 10");
         browserOptions.setCapability("browserVersion", "11");
-        browserOptions.setCapability("sauce:options", sauceOptions);
-
-        startDriver(browserOptions);
-        validateGoogle();
-    }
-
-    @DisplayName("Latest Windows 7")
-    @Test
-    public void latestWin7() {
-        browserOptions.setCapability("platformName", "Windows 7");
-        browserOptions.setCapability("browserVersion", "latest");
         browserOptions.setCapability("sauce:options", sauceOptions);
 
         startDriver(browserOptions);

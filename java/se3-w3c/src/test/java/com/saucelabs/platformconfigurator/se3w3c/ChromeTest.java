@@ -79,18 +79,6 @@ public class ChromeTest extends AbstractBaseTest {
         validateGoogle();
     }
 
-    @DisplayName("latest Yosemite")
-    @Test
-    public void latestYosemite() {
-        browserOptions.setExperimentalOption("w3c", true);
-        browserOptions.setCapability("platformName", "OS X 10.10");
-        browserOptions.setCapability("browserVersion", "latest");
-        browserOptions.setCapability("sauce:options", sauceOptions);
-
-        startDriver(browserOptions);
-        validateGoogle();
-    }
-
     @DisplayName("late Yosemite")
     @Test
     public void lateYosemite() {

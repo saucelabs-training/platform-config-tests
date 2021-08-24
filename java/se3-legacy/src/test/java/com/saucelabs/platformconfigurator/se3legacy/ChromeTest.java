@@ -74,16 +74,6 @@ public class ChromeTest extends AbstractBaseTest {
         validateGoogle();
     }
 
-    @DisplayName("latest Linux")
-    @Test
-    public void latestLinux() {
-        caps.setCapability("platform", "Linux");
-        caps.setCapability("version", "latest");
-
-        startDriver(caps);
-        validateGoogle();
-    }
-
     @DisplayName("late Linux")
     @Test
     public void lateLinux() {
@@ -99,16 +89,6 @@ public class ChromeTest extends AbstractBaseTest {
     public void earlyLinux() {
         caps.setCapability("platform", "Linux");
         caps.setCapability("version", "26");
-
-        startDriver(caps);
-        validateGoogle();
-    }
-
-    @DisplayName("latest Yosemite")
-    @Test
-    public void latestYosemite() {
-        caps.setCapability("platform", "OS X 10.10");
-        caps.setCapability("version", "latest");
 
         startDriver(caps);
         validateGoogle();

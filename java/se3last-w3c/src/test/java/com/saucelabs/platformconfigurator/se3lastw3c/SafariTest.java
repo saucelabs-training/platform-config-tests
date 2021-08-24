@@ -7,17 +7,6 @@ import org.openqa.selenium.safari.SafariOptions;
 public class SafariTest extends AbstractBaseTest {
     SafariOptions browserOptions = new SafariOptions();
 
-    @DisplayName("latest Big Sur")
-    @Test
-    public void latestBigSur() {
-        browserOptions.setCapability("platformName", "macOS 11.00");
-        browserOptions.setCapability("browserVersion", "latest");
-        browserOptions.setCapability("sauce:options", sauceOptions);
-
-        startDriver(browserOptions);
-        validateGoogle();
-    }
-
     @DisplayName("Big Sur")
     @Test
     public void lateBigSur() {
