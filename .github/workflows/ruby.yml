@@ -18,6 +18,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
+      - name: Install Dependencies
+        working-directory: ruby/${{ matrix.dir }}
+        run: bundle install
       - name: Run ${{ matrix.dir }} tests
         working-directory: ruby/${{ matrix.dir }}
         env:
