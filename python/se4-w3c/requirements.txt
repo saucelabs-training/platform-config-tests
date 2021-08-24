@@ -1,0 +1,4 @@
+selenium==4.0.0.b4
+pytest
+flake8
+pytest-xdist
