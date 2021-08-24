@@ -1,0 +1,26 @@
+name: Python Tests
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  python-tests:
+    name: Python Tests
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        dir: [ se3-legacy, se3-w3c, se3last-legacy, se3last-w3c, se4-w3c ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7.10
+      - name: Run ${{ matrix.dir }} tests
+        working-directory: ruby/${{ matrix.dir }}
+        env:
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+        run: pytest -n 20
