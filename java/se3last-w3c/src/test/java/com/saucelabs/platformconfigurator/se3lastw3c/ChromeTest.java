@@ -10,7 +10,6 @@ public class ChromeTest extends AbstractBaseTest {
     @DisplayName("Latest Windows 10")
     @Test
     public void latestWin10() {
-        browserOptions.setExperimentalOption("w3c", true);
         browserOptions.setCapability("platformName", "Windows 10");
         browserOptions.setCapability("browserVersion", "latest");
         browserOptions.setCapability("sauce:options", sauceOptions);
@@ -22,7 +21,6 @@ public class ChromeTest extends AbstractBaseTest {
     @DisplayName("Late Windows 10")
     @Test
     public void lateWin10() {
-        browserOptions.setExperimentalOption("w3c", true);
         browserOptions.setCapability("platformName", "Windows 10");
         browserOptions.setCapability("browserVersion", "92");
         browserOptions.setCapability("sauce:options", sauceOptions);
@@ -34,7 +32,6 @@ public class ChromeTest extends AbstractBaseTest {
     @DisplayName("Early Windows 10")
     @Test
     public void earlyWin10() {
-        browserOptions.setExperimentalOption("w3c", true);
         browserOptions.setCapability("platformName", "Windows 10");
         browserOptions.setCapability("browserVersion", "75");
         browserOptions.setCapability("sauce:options", sauceOptions);
@@ -46,7 +43,6 @@ public class ChromeTest extends AbstractBaseTest {
     @DisplayName("Latest Windows 7")
     @Test
     public void latestWin7() {
-        browserOptions.setExperimentalOption("w3c", true);
         browserOptions.setCapability("platformName", "Windows 7");
         browserOptions.setCapability("browserVersion", "latest");
         browserOptions.setCapability("sauce:options", sauceOptions);
@@ -58,7 +54,6 @@ public class ChromeTest extends AbstractBaseTest {
     @DisplayName("Late Windows 7")
     @Test
     public void lateWin7() {
-        browserOptions.setExperimentalOption("w3c", true);
         browserOptions.setCapability("platformName", "Windows 7");
         browserOptions.setCapability("browserVersion", "92");
         browserOptions.setCapability("sauce:options", sauceOptions);
@@ -70,7 +65,6 @@ public class ChromeTest extends AbstractBaseTest {
     @DisplayName("Early Windows 7")
     @Test
     public void earlyWin7() {
-        browserOptions.setExperimentalOption("w3c", true);
         browserOptions.setCapability("platformName", "Windows 7");
         browserOptions.setCapability("browserVersion", "75");
         browserOptions.setCapability("sauce:options", sauceOptions);
@@ -82,7 +76,6 @@ public class ChromeTest extends AbstractBaseTest {
     @DisplayName("latest Yosemite")
     @Test
     public void latestYosemite() {
-        browserOptions.setExperimentalOption("w3c", true);
         browserOptions.setCapability("platformName", "OS X 10.10");
         browserOptions.setCapability("browserVersion", "latest");
         browserOptions.setCapability("sauce:options", sauceOptions);
@@ -94,7 +87,6 @@ public class ChromeTest extends AbstractBaseTest {
     @DisplayName("late Yosemite")
     @Test
     public void lateYosemite() {
-        browserOptions.setExperimentalOption("w3c", true);
         browserOptions.setCapability("platformName", "OS X 10.10");
         browserOptions.setCapability("browserVersion", "87");
         browserOptions.setCapability("sauce:options", sauceOptions);
@@ -106,7 +98,6 @@ public class ChromeTest extends AbstractBaseTest {
     @DisplayName("early Yosemite")
     @Test
     public void earlyYosemite() {
-        browserOptions.setExperimentalOption("w3c", true);
         browserOptions.setCapability("platformName", "OS X 10.10");
         browserOptions.setCapability("browserVersion", "75");
         browserOptions.setCapability("sauce:options", sauceOptions);
@@ -118,7 +109,6 @@ public class ChromeTest extends AbstractBaseTest {
     @DisplayName("latest Big Sur")
     @Test
     public void latestBigSur() {
-        browserOptions.setExperimentalOption("w3c", true);
         browserOptions.setCapability("platformName", "macOS 11.00");
         browserOptions.setCapability("browserVersion", "latest");
         browserOptions.setCapability("sauce:options", sauceOptions);
@@ -130,7 +120,6 @@ public class ChromeTest extends AbstractBaseTest {
     @DisplayName("late Big Sur")
     @Test
     public void lateBigSur() {
-        browserOptions.setExperimentalOption("w3c", true);
         browserOptions.setCapability("platformName", "macOS 11.00");
         browserOptions.setCapability("browserVersion", "92");
         browserOptions.setCapability("sauce:options", sauceOptions);
@@ -142,7 +131,6 @@ public class ChromeTest extends AbstractBaseTest {
     @DisplayName("early Big Sur")
     @Test
     public void earlyBigSur() {
-        browserOptions.setExperimentalOption("w3c", true);
         browserOptions.setCapability("platformName", "macOS 11.00");
         browserOptions.setCapability("browserVersion", "75");
         browserOptions.setCapability("sauce:options", sauceOptions);
