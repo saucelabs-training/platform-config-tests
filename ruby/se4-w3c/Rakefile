@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "rspec/core/rake_task"
+ENV['BUILD_TIME'] = Time.now.to_s
 
 RSpec::Core::RakeTask.new(:spec)
 
@@ -9,4 +10,9 @@ task default: :spec
 desc 'Run tests in parallel'
 task :parallel do
   system 'parallel_split_test spec'
+end
+
+desc 'Run mobile tests in parallel'
+task :mobile do
+  system 'parallel_split_test spec/mobile_*_spec.rb'
 end
