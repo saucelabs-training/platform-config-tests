@@ -1,0 +1,33 @@
+name: JavaScript Tests
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  legacy-tests:
+    name: Legacy Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+      - name: Install dependencies
+        working-directory: ./js/
+        run: npm install
+      - name: Run tests
+        working-directory: ./js/
+        run: npm run test.legacy -- --maxInstances=10
+  w3c-tests:
+    name: W3C Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+      - name: Install dependencies
+        working-directory: ./js/
+        run: npm install
+      - name: Run tests
+        working-directory: ./js/
+        run: npm run test.w3c -- --maxInstances=10

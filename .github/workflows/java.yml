@@ -6,7 +6,7 @@ on:
 
 jobs:
   legacy-tests:
-    name: Java Tests
+    name: Legacy Tests
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -18,14 +18,14 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Run testng tests
+      - name: Run tests
         working-directory: java/${{ matrix.dir }}
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
         run: mvn test -X
   w3c-tests:
-    name: Java Tests
+    name: W3C Tests
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -37,14 +37,14 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Run testng tests
+      - name: Run tests
         working-directory: java/${{ matrix.dir }}
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
         run: mvn test -X
   appium-tests:
-    name: Java Tests
+    name: Appium Tests
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -56,7 +56,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Run testng tests
+      - name: Run tests
         working-directory: java/${{ matrix.dir }}
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
