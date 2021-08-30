@@ -67,7 +67,7 @@ firefoxLateWin10 = {...caps, ...common};
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'Windows 10';
-caps['version'] = '4'; // Actual 32?
+caps['version'] = '32'; // Sated: 4
 firefoxEarlyWin10 = {...caps, ...common};
 
 caps = {};
@@ -109,7 +109,7 @@ firefoxLateWin7 = {...caps, ...common};
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'Windows 7';
-caps['version'] = '4'; // Actually 32
+caps['version'] = '32'; // Stated: 4
 firefoxEarlyWin7 = {...caps, ...common};
 
 caps = {};
@@ -145,7 +145,7 @@ firefoxLateLinux = {...caps, ...common};
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'Linux';
-caps['version'] = '4'; // Actual 32
+caps['version'] = '32'; // Stated: 4
 firefoxEarlyLinux = {...caps, ...common};
 
 caps = {};
