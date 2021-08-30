@@ -9,7 +9,7 @@ task default: :spec
 
 desc 'Run all tests in parallel'
 task :parallel do
-  system 'parallel_split_test'
+  system 'parallel_split_test spec'
 end
 
 desc 'Run mobile tests in parallel'
