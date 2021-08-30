@@ -27,7 +27,7 @@ module Utils
     sauce_url = "https://#{username}:#{access_key}@ondemand.us-west-1.saucelabs.com/wd/hub"
 
     caps['sauce:name'] = @name
-    caps['sauce:build'] = "SeLastW3C - #{ENV['BUILD_TIME']}"
+    caps['sauce:build'] = "Ruby SeLast W3C - #{ENV['BUILD_TIME']}"
 
     @driver = Selenium::WebDriver.for(:remote,
                                       url: sauce_url,
