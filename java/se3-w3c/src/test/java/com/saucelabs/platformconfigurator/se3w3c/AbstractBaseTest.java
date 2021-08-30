@@ -14,11 +14,12 @@ public class AbstractBaseTest {
     String accessKey = System.getenv("SAUCE_ACCESS_KEY");
     String sauceUrl = "https://" + username + ":" + accessKey + "@ondemand.us-west-1.saucelabs.com/wd/hub";
     MutableCapabilities sauceOptions = new MutableCapabilities();
+    public static final String TIME = String.valueOf(System.currentTimeMillis());
 
     @BeforeEach
     public void setName(TestInfo testInfo) {
         sauceOptions.setCapability("name", testInfo.getDisplayName());
-//        sauceOptions.setCapability("seleniumVersion", "4.0.0-rc");
+        sauceOptions.setCapability("build", "Java Se3 W3C - " + TIME);
     }
 
     public void startDriver(MutableCapabilities caps) {

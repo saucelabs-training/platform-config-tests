@@ -12,6 +12,7 @@ public class SafariTest extends AbstractBaseTest{
     @BeforeEach
     public void setup(TestInfo testInfo) {
         caps.setCapability("name", testInfo.getDisplayName());
+        caps.setCapability("build", "Java Se2 Legacy - " + TIME);
     }
 
     @DisplayName("Yosemite")

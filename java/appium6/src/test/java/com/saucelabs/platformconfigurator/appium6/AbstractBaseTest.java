@@ -21,7 +21,7 @@ public class AbstractBaseTest {
     @BeforeEach
     public void setName(TestInfo testInfo) {
         caps.setCapability("sauce:name", testInfo.getDisplayName());
-        caps.setCapability("sauce:build", "Appium 6 Tests - " + TIME);
+        caps.setCapability("sauce:build", "Java Early Appium - " + TIME);
     }
 
     public AndroidDriver<WebElement> startAndroidDriver(MutableCapabilities caps) {

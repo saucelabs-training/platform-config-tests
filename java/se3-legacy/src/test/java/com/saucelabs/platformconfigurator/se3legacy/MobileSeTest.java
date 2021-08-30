@@ -1,4 +1,4 @@
-package com.saucelabs.platformconfigurator.se3lastw3c;
+package com.saucelabs.platformconfigurator.se3legacy;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -43,7 +43,7 @@ public class MobileSeTest {
     @BeforeEach
     public void setName(TestInfo testInfo) {
         caps.setCapability("sauce:name", testInfo.getDisplayName());
-        caps.setCapability("sauce:build", "Java Se3Last W3C Mobile - " + TIME);
+        caps.setCapability("build", "Java Se3 Legacy Mobile - " + TIME);
         // caps.setCapability("sauce:seleniumVersion", "4.0.0-rc");
     }
 

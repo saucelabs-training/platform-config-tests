@@ -12,6 +12,7 @@ public class IETest extends AbstractBaseTest{
     @BeforeEach
     public void setup(TestInfo testInfo) {
         caps.setCapability("name", testInfo.getDisplayName());
+        caps.setCapability("build", "Java Se3 Legacy - " + TIME);
     }
 
     @DisplayName("Late Windows 10")

@@ -43,7 +43,7 @@ public class MobileSeTest {
     @BeforeEach
     public void setName(TestInfo testInfo) {
         caps.setCapability("sauce:name", testInfo.getDisplayName());
-        caps.setCapability("sauce:build", "Mobile Browser Tests - " + TIME);
+        caps.setCapability("build", "Java Se3 Legacy Mobile - " + TIME);
     }
 
     @Test
@@ -70,10 +70,11 @@ public class MobileSeTest {
         validateGoogle();
     }
 
+    // 6.0 earliest that works, but it's a product problem
     @Test
     public void earliestAndroidLatestAppium() {
         caps.setCapability("sauce:appiumVersion", "1.20.2");
-        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
+        caps.setCapability("appium:deviceName", "Android Emulator");
         caps.setCapability("appium:platformVersion", "5.1");
         caps.setCapability("platformName","Android");
         caps.setCapability("browserName", "Browser");
@@ -82,11 +83,10 @@ public class MobileSeTest {
         validateGoogle();
     }
 
-    // 1.9.1 not 1.8.0 (w3c conversion issue)
     @Test
-    public void earliestAndroidEarliestAppiumStated() {
+    public void earliestAndroidEarliestAppium() {
         caps.setCapability("sauce:appiumVersion", "1.8.0");
-        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
+        caps.setCapability("appium:deviceName", "Android Emulator");
         caps.setCapability("appium:platformVersion", "5.1");
         caps.setCapability("platformName","Android");
         caps.setCapability("browserName", "Browser");
@@ -96,19 +96,7 @@ public class MobileSeTest {
     }
 
     @Test
-    public void earliestAndroidEarliestAppiumActual() {
-        caps.setCapability("sauce:appiumVersion", "1.9.1");
-        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
-        caps.setCapability("appium:platformVersion", "5.1");
-        caps.setCapability("platformName","Android");
-        caps.setCapability("browserName", "Browser");
-
-        startDriver(caps);
-        validateGoogle();
-    }
-
-    @Test
-    public void latestIOS() {
+    public void latestIOSLatestAppium() {
         caps.setCapability("sauce:appiumVersion", "1.20.1");
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         caps.setCapability("appium:platformVersion", "14.5");
@@ -120,7 +108,7 @@ public class MobileSeTest {
     }
 
     @Test
-    public void earliestIOS() {
+    public void earliestIOSEarliestAppium() {
         caps.setCapability("sauce:appiumVersion", "1.8.0");
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         caps.setCapability("appium:platformVersion", "10.3");

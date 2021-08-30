@@ -11,6 +11,7 @@ public class AbstractBaseTest {
     String username = System.getenv("SAUCE_USERNAME");
     String accessKey = System.getenv("SAUCE_ACCESS_KEY");
     String sauceUrl = "https://" + username + ":" + accessKey + "@ondemand.us-west-1.saucelabs.com/wd/hub";
+    public static final String TIME = String.valueOf(System.currentTimeMillis());
 
     public void startDriver(DesiredCapabilities caps) {
         try {

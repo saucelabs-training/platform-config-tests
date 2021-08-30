@@ -12,6 +12,7 @@ public class EdgeTest extends AbstractBaseTest {
     @BeforeEach
     public void setup(TestInfo testInfo) {
         caps.setCapability("name", testInfo.getDisplayName());
+        caps.setCapability("build", "Java Se3 Legacy - " + TIME);
     }
 
     @DisplayName("Latest Windows 10")
