@@ -4,24 +4,34 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import static org.junit.jupiter.api.Assertions.fail;
 public class AbstractBaseTest {
     String username = System.getenv("SAUCE_USERNAME");
     String accessKey = System.getenv("SAUCE_ACCESS_KEY");
     String sauceUrl = "https://" + username + ":" + accessKey + "@ondemand.us-west-1.saucelabs.com/wd/hub";
     public static final String TIME = String.valueOf(System.currentTimeMillis());
     MutableCapabilities caps = new MutableCapabilities();
+    RemoteWebDriver driver;
 
     @BeforeEach
     public void setName(TestInfo testInfo) {
         caps.setCapability("sauce:name", testInfo.getDisplayName());
         caps.setCapability("sauce:build", "Java Appium Latest with Se3 - " + TIME);
+    }
+
+    @AfterEach
+    public void quit() {
+        driver.quit();
     }
 
     public AndroidDriver<WebElement> startAndroidDriver(MutableCapabilities caps) {
@@ -48,8 +58,8 @@ public class AbstractBaseTest {
             driver.executeScript("sauce:job-result=passed");
         } else {
             driver.executeScript("sauce:job-result=failed");
+            fail("Unable to find element");
         }
-        driver.quit();
     }
 
     public void validateGoogle(AppiumDriver<WebElement> driver) {
@@ -59,7 +69,7 @@ public class AbstractBaseTest {
             driver.executeScript("sauce:job-result=passed");
         } else {
             driver.executeScript("sauce:job-result=failed");
+            fail("Unable to navigate");
         }
-        driver.quit();
     }
 }

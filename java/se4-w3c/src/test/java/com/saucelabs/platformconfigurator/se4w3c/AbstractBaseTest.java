@@ -8,6 +8,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import static org.junit.jupiter.api.Assertions.fail;
 public class AbstractBaseTest {
     RemoteWebDriver driver;
     String username = System.getenv("SAUCE_USERNAME");
@@ -43,6 +45,7 @@ public class AbstractBaseTest {
             driver.executeScript("sauce:job-result=passed");
         } else {
             driver.executeScript("sauce:job-result=failed");
+            fail("Unable to navigate");
         }
     }
 
