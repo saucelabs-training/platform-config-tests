@@ -19,7 +19,7 @@ jobs:
         run: npm install
       - name: Run tests
         working-directory: ./js/
-        run: npm run test.legacy
+        run: npm run test.legacy -- --logLevel "debug"
   w3c-tests:
     name: W3C Tests
     runs-on: ubuntu-latest
@@ -34,4 +34,4 @@ jobs:
         run: npm install
       - name: Run tests
         working-directory: ./js/
-        run: npm run test.w3c
+        run: npm run test.w3c -- --logLevel "debug"
