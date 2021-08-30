@@ -14,240 +14,241 @@ config.region = process.env.REGION || 'us';
 // ============
 // Capabilities
 // ============
+common = {'build': 'Legacy WDIO - ' + Date.now()}
+
 caps = {};
 caps['browserName'] = 'chrome';
 caps['platform'] = 'Windows 10';
 caps['version'] = 'latest';
-chromeLatestWin10 = caps;
+chromeLatestWin10 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'chrome';
 caps['platform'] = 'Windows 10';
 caps['version'] = '92';
-chromeLateWin10 = caps;
+chromeLateWin10 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'chrome';
 caps['platform'] = 'Windows 10';
 caps['version'] = '26';
-chromeEarlyWin10 = caps;
+chromeEarlyWin10 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'MicrosoftEdge';
 caps['platform'] = 'Windows 10';
 caps['version'] = 'latest';
-edgeLatestWin10 = caps;
+edgeLatestWin10 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'MicrosoftEdge';
 caps['platform'] = 'Windows 10';
 caps['version'] = '92';
-edgeLateWin10 = caps;
+edgeLateWin10 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'MicrosoftEdge';
 caps['platform'] = 'Windows 10';
 caps['version'] = '13';
-edgeEarlyWin10 = caps;
+edgeEarlyWin10 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'Windows 10';
 caps['version'] = 'latest';
-firefoxLatestWin10 = caps;
+firefoxLatestWin10 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'Windows 10';
 caps['version'] = '91';
-firefoxLateWin10 = caps;
+firefoxLateWin10 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'Windows 10';
-caps['version'] = '32'; // This should be '4'
-firefoxEarlyWin10 = caps;
+caps['version'] = '4'; // Actual 32?
+firefoxEarlyWin10 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'internet explorer';
 caps['platform'] = 'Windows 10';
 caps['version'] = '11';
-ieWin10 = caps;
+ieWin10 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'chrome';
 caps['platform'] = 'Windows 7';
 caps['version'] = 'latest';
-chromeLatestWin7 = caps;
+chromeLatestWin7 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'chrome';
 caps['platform'] = 'Windows 7';
 caps['version'] = '92';
-chromeLateWin7 = caps;
+chromeLateWin7 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'chrome';
 caps['platform'] = 'Windows 7';
 caps['version'] = '26';
-chromeEarlyWin7 = caps;
+chromeEarlyWin7 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'Windows 7';
 caps['version'] = 'latest';
-firefoxLatestWin7 = caps;
+firefoxLatestWin7 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'Windows 7';
 caps['version'] = '91';
-firefoxLateWin7 = caps;
+firefoxLateWin7 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'Windows 7';
-caps['version'] = '32'; // This should be '4'
-firefoxEarlyWin7 = caps;
+caps['version'] = '4'; // Actually 32
+firefoxEarlyWin7 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'internet explorer';
 caps['platform'] = 'Windows 7';
 caps['version'] = '11';
-ieLateWin7 = caps;
+ieLateWin7 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'internet explorer';
 caps['platform'] = 'Windows 7';
 caps['version'] = '9';
-ieEarlyWin7 = caps;
+ieEarlyWin7 = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'chrome';
 caps['platform'] = 'Linux';
 caps['version'] = '48';
-chromeLateLinux = caps;
+chromeLateLinux = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'chrome';
 caps['platform'] = 'Linux';
 caps['version'] = '26';
-chromeEarlyLinux = caps;
+chromeEarlyLinux = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'Linux';
 caps['version'] = '45';
-firefoxLateLinux = caps;
+firefoxLateLinux = {...caps, ...common};
 
-// For some reason Firefox + Linux w/JWP only works > v31 /shrug
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'Linux';
-caps['version'] = '32'; // should be 4
-firefoxEarlyLinux = caps;
+caps['version'] = '4'; // Actual 32
+firefoxEarlyLinux = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'chrome';
 caps['platform'] = 'OS X 10.10';
 caps['version'] = '87';
-chromeLateYosemite = caps;
+chromeLateYosemite = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'chrome';
 caps['platform'] = 'OS X 10.10';
 caps['version'] = '37';
-chromeEarlyYosemite = caps;
+chromeEarlyYosemite = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'MicrosoftEdge';
 caps['platform'] = 'OS X 10.10';
 caps['version'] = '81';
-edgeLateYosemite = caps;
+edgeLateYosemite = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'MicrosoftEdge';
 caps['platform'] = 'OS X 10.10';
 caps['version'] = '79';
-edgeEarlyYosemite = caps;
+edgeEarlyYosemite = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'OS X 10.10';
 caps['version'] = '47';
-firefoxLateYosemite = caps;
+firefoxLateYosemite = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'OS X 10.10';
 caps['version'] = '32';
-firefoxEarlyYosemite = caps;
+firefoxEarlyYosemite = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'safari';
 caps['platform'] = 'OS X 10.10';
 caps['version'] = '8';
-safariYosemite = caps;
+safariYosemite = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'chrome';
 caps['platform'] = 'macOS 11.00';
 caps['version'] = 'latest';
-chromeLatestBigSur = caps;
+chromeLatestBigSur = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'chrome';
 caps['platform'] = 'macOS 11.00';
 caps['version'] = '92';
-chromeLateBigSur = caps;
+chromeLateBigSur = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'chrome';
 caps['platform'] = 'macOS 11.00';
 caps['version'] = '69';
-chromeEarlyBigSur = caps;
+chromeEarlyBigSur = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'MicrosoftEdge';
 caps['platform'] = 'macOS 11.00';
 caps['version'] = 'latest';
-edgeLatestBigSur = caps;
+edgeLatestBigSur = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'MicrosoftEdge';
 caps['platform'] = 'macOS 11.00';
 caps['version'] = '92';
-edgeLateBigSur = caps;
+edgeLateBigSur = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'MicrosoftEdge';
 caps['platform'] = 'macOS 11.00';
 caps['version'] = '79';
-edgeEarlyBigSur = caps;
+edgeEarlyBigSur = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'macOS 11.00';
 caps['version'] = 'latest';
-firefoxLatestBigSur = caps;
+firefoxLatestBigSur = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'macOS 11.00';
 caps['version'] = '91';
-firefoxLateBigSur = caps;
+firefoxLateBigSur = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'Firefox';
 caps['platform'] = 'macOS 11.00';
 caps['version'] = '60';
-firefoxEarlyBigSur = caps;
+firefoxEarlyBigSur = {...caps, ...common};
 
 caps = {};
 caps['browserName'] = 'safari';
 caps['platform'] = 'macOS 11.00';
 caps['version'] = '14';
-safariBigSur = caps;
+safariBigSur = {...caps, ...common};
 
 config.capabilities = [
     chromeLatestWin10,
