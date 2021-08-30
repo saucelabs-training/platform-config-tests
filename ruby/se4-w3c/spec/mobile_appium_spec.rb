@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Mobile with Appium' do
+xdescribe 'Mobile with Appium' do
   include Utils
   iOS = "https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/iOS.Simulator.SauceLabs.Mobile.Sample.app.2.7.1.zip"
   android = "https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk"

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rspec'
 require 'selenium-webdriver'
-require 'appium_lib'
+#require 'appium_lib'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
