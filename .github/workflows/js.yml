@@ -19,7 +19,10 @@ jobs:
         run: npm install
       - name: Run tests
         working-directory: ./js/
-        run: npm run test.legacy -- --logLevel "debug"
+        env:
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+        run: npm run test.legacy
   w3c-tests:
     name: W3C Tests
     runs-on: ubuntu-latest
@@ -34,4 +37,7 @@ jobs:
         run: npm install
       - name: Run tests
         working-directory: ./js/
-        run: npm run test.w3c -- --logLevel "debug"
+        env:
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+        run: npm run test.w3c
