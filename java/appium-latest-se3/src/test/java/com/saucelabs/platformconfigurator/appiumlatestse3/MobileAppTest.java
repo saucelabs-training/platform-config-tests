@@ -2,6 +2,7 @@ package com.saucelabs.platformconfigurator.appiumlatestse3;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 
@@ -74,8 +75,8 @@ public class MobileAppTest extends AbstractBaseTest {
         validateApp((IOSDriver<WebElement>) driver);
     }
 
-    // 10.3 does not want to load an app
     @Test
+    @Disabled("10.3 does not want to load app and this test takes forever to fail")
     public void earliestIOSStated() {
         caps.setCapability("sauce:appiumVersion", "1.8.0");
         caps.setCapability("appium:deviceName", "iPhone Simulator");

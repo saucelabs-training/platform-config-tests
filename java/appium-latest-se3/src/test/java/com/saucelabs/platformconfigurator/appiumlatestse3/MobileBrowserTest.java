@@ -42,7 +42,7 @@ public class MobileBrowserTest extends AbstractBaseTest {
         caps.setCapability("browserName", "Browser");
 
         driver = startAndroidDriver(caps);
-        validateApp((AndroidDriver<WebElement>) driver);
+        validateGoogle((AndroidDriver<WebElement>) driver);
     }
 
     @Test
