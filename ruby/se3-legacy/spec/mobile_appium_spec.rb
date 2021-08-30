@@ -37,8 +37,10 @@ describe 'Mobile with Appium' do
       caps['platformName'] = 'Android'
       caps['browserName'] = 'Browser'
 
-      start_appium_driver(caps)
-      validate_google
+      expect {
+        start_appium_driver(caps)
+        validate_google
+      }.to raise_exception(Appium::Core::Error::ServerError)
     end
 
     # 1.8.0 does not convert timeout calls, so get error
@@ -49,14 +51,16 @@ describe 'Mobile with Appium' do
       caps['platformName'] = 'Android'
       caps['browserName'] = 'Browser'
 
-      start_appium_driver(caps)
-      validate_google
+      expect {
+        start_appium_driver(caps)
+        validate_google
+      }.to raise_exception(Appium::Core::Error::ServerError)
     end
 
     it 'runs earliest Android with earliest Appium Actual' do
       caps['sauce:appiumVersion'] = '1.9.1'
       caps['appium:deviceName'] = "Android GoogleAPI Emulator"
-      caps['appium:platformVersion'] = "5.1"
+      caps['appium:platformVersion'] = "6.0"
       caps['platformName'] = 'Android'
       caps['browserName'] = 'Browser'
 

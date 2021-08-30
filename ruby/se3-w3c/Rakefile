@@ -9,5 +9,5 @@ task default: :spec
 desc 'Run all tests in parallel'
 task :parallel do
   result = system 'parallel_split_test spec'
-  raise StandardError, 'Tests failed!' unless result
+  raise StandardError, "Not everything passed" unless result
 end

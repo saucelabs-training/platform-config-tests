@@ -10,11 +10,10 @@ task default: :spec
 desc 'Run all tests in parallel'
 task :parallel do
   result = system 'parallel_split_test spec'
-  raise StandardError, 'Tests failed!' unless result
+  raise StandardError, "Not everything passed" unless result
 end
 
 desc 'Run mobile tests in parallel'
 task :mobile do
-  result = system 'parallel_split_test spec/mobile_*_spec.rb'
-  raise StandardError, 'Tests failed!' unless result
+  system 'parallel_split_test spec/mobile_*_spec.rb'
 end
