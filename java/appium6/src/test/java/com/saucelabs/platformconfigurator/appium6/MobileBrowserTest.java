@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 
 public class MobileBrowserTest extends AbstractBaseTest {
-    String ios = "https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/iOS.Simulator.SauceLabs.Mobile.Sample.app.2.7.1.zip";
-    String android = "https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk";
 
     @Test
     public void latestAndroidLatestAppiumBrowser() {
@@ -42,7 +40,7 @@ public class MobileBrowserTest extends AbstractBaseTest {
         caps.setCapability("browserName", "Browser");
 
         driver = startAndroidDriver(caps);
-        validateApp((AndroidDriver<WebElement>) driver);
+        validateGoogle((AndroidDriver<WebElement>) driver);
     }
 
     @Test
