@@ -40,14 +40,12 @@ describe 'Mobile with Appium' do
       caps['platformName'] = 'Android'
       caps['browserName'] = 'Browser'
 
-      expect {
-        start_appium_driver(caps)
-        validate_google
-      }.to raise_exception(Appium::Core::Error::ServerError)
+      start_appium_driver(caps)
+      validate_google
     end
 
-    # 1.8.0 does not convert timeout calls, so get error
     it 'runs earliest Android with earliest Appium Stated' do
+      pending('1.8.0 does not convert timeout calls, so get error')
       caps['sauce:options'] = {}
       caps['sauce:options']['appiumVersion'] = '1.8.0'
       caps['appium:deviceName'] = "Android GoogleAPI Emulator"
@@ -55,10 +53,8 @@ describe 'Mobile with Appium' do
       caps['platformName'] = 'Android'
       caps['browserName'] = 'Browser'
 
-      expect {
-        start_appium_driver(caps)
-        validate_google
-      }.to raise_exception(Appium::Core::Error::ServerError)
+      start_appium_driver(caps)
+      validate_google
     end
 
     it 'runs earliest Android with earliest Appium Actual' do
@@ -168,8 +164,8 @@ describe 'Mobile with Appium' do
       validate_app
     end
 
-    # 10.3 does not want to start an app
     it 'with earliest iOS Stated' do
+      skip('10.3 does not want to start an app; skip because takes too long to fail')
       caps['sauce:options'] = {}
       caps['sauce:options']['appiumVersion'] = '1.8.0'
       caps['appium:deviceName'] = "iPhone Simulator"
