@@ -1,5 +1,6 @@
 package com.saucelabs.platformconfigurator.se3legacy;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
@@ -47,12 +48,19 @@ public class MobileSeTest {
         // caps.setCapability("sauce:seleniumVersion", "4.0.0-rc");
     }
 
+    @AfterEach
+    public void quitDriver() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
     @Test
     public void latestAndroidLatestAppium() {
         caps.setCapability("sauce:appiumVersion", "1.20.2");
         caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "11.0");
-        caps.setCapability("platformName","Android");
+        caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Chrome");
 
         startDriver(caps);
@@ -64,7 +72,7 @@ public class MobileSeTest {
         caps.setCapability("sauce:appiumVersion", "1.15.0");
         caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "11.0");
-        caps.setCapability("platformName","Android");
+        caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Chrome");
 
         startDriver(caps);
@@ -75,9 +83,9 @@ public class MobileSeTest {
     @Test
     public void earliestAndroidLatestAppium() {
         caps.setCapability("sauce:appiumVersion", "1.20.2");
-        caps.setCapability("appium:deviceName", "Android Emulator");
+        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "5.1");
-        caps.setCapability("platformName","Android");
+        caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Browser");
 
         startDriver(caps);
@@ -87,9 +95,9 @@ public class MobileSeTest {
     @Test
     public void earliestAndroidEarliestAppium() {
         caps.setCapability("sauce:appiumVersion", "1.8.0");
-        caps.setCapability("appium:deviceName", "Android Emulator");
+        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "5.1");
-        caps.setCapability("platformName","Android");
+        caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Browser");
 
         startDriver(caps);

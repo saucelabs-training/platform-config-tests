@@ -1,5 +1,6 @@
 package com.saucelabs.platformconfigurator.se3lastw3c;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
@@ -11,6 +12,7 @@ import java.net.URL;
 
 public class MobileSeTest {
     MutableCapabilities caps = new MutableCapabilities();
+    MutableCapabilities sauceOptions = new MutableCapabilities();
     RemoteWebDriver driver;
     String username = System.getenv("SAUCE_USERNAME");
     String accessKey = System.getenv("SAUCE_ACCESS_KEY");
@@ -42,17 +44,24 @@ public class MobileSeTest {
 
     @BeforeEach
     public void setName(TestInfo testInfo) {
-        caps.setCapability("sauce:name", testInfo.getDisplayName());
-        caps.setCapability("sauce:build", "Java Se3Last W3C Mobile - " + TIME);
-        // caps.setCapability("sauce:seleniumVersion", "4.0.0-rc");
+        sauceOptions.setCapability("name", testInfo.getDisplayName());
+        sauceOptions.setCapability("build", "Java Se3Last W3C Mobile - " + TIME);
+    }
+
+    @AfterEach
+    public void quitDriver() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
     @Test
     public void latestAndroidLatestAppium() {
-        caps.setCapability("sauce:appiumVersion", "1.20.2");
+        sauceOptions.setCapability("appiumVersion", "1.20.2");
         caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "11.0");
-        caps.setCapability("platformName","Android");
+        caps.setCapability("sauce:options", sauceOptions);
+        caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Chrome");
 
         startDriver(caps);
@@ -61,10 +70,11 @@ public class MobileSeTest {
 
     @Test
     public void latestAndroidEarliestAppium() {
-        caps.setCapability("sauce:appiumVersion", "1.15.0");
+        sauceOptions.setCapability("appiumVersion", "1.15.0");
         caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "11.0");
-        caps.setCapability("platformName","Android");
+        caps.setCapability("sauce:options", sauceOptions);
+        caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Chrome");
 
         startDriver(caps);
@@ -74,10 +84,11 @@ public class MobileSeTest {
     // 6.0 earliest that works, but it's a product problem
     @Test
     public void earliestAndroidLatestAppium() {
-        caps.setCapability("sauce:appiumVersion", "1.20.2");
-        caps.setCapability("appium:deviceName", "Android Emulator");
+        sauceOptions.setCapability("appiumVersion", "1.20.2");
+        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "5.1");
-        caps.setCapability("platformName","Android");
+        caps.setCapability("sauce:options", sauceOptions);
+        caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Browser");
 
         startDriver(caps);
@@ -86,10 +97,11 @@ public class MobileSeTest {
 
     @Test
     public void earliestAndroidEarliestAppium() {
-        caps.setCapability("sauce:appiumVersion", "1.8.0");
-        caps.setCapability("appium:deviceName", "Android Emulator");
+        sauceOptions.setCapability("appiumVersion", "1.8.0");
+        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "5.1");
-        caps.setCapability("platformName","Android");
+        caps.setCapability("sauce:options", sauceOptions);
+        caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Browser");
 
         startDriver(caps);
@@ -97,10 +109,11 @@ public class MobileSeTest {
     }
 
     @Test
-    public void latestIOSLatestAppium() {
-        caps.setCapability("sauce:appiumVersion", "1.20.1");
+    public void latestIOS() {
+        sauceOptions.setCapability("appiumVersion", "1.21.0");
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         caps.setCapability("appium:platformVersion", "14.5");
+        caps.setCapability("sauce:options", sauceOptions);
         caps.setCapability("platformName", "iOS");
         caps.setCapability("browserName", "Safari");
 
@@ -109,10 +122,11 @@ public class MobileSeTest {
     }
 
     @Test
-    public void earliestIOSEarliestAppium() {
-        caps.setCapability("sauce:appiumVersion", "1.8.0");
+    public void earliestIOS() {
+        sauceOptions.setCapability("appiumVersion", "1.8.0");
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         caps.setCapability("appium:platformVersion", "10.3");
+        caps.setCapability("sauce:options", sauceOptions);
         caps.setCapability("platformName", "iOS");
         caps.setCapability("browserName", "Safari");
 

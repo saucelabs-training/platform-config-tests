@@ -19,14 +19,15 @@ public class AbstractBaseTest {
     String username = System.getenv("SAUCE_USERNAME");
     String accessKey = System.getenv("SAUCE_ACCESS_KEY");
     String sauceUrl = "https://" + username + ":" + accessKey + "@ondemand.us-west-1.saucelabs.com/wd/hub";
-    MutableCapabilities caps = new MutableCapabilities();
     public static final String TIME = String.valueOf(System.currentTimeMillis());
+    MutableCapabilities caps = new MutableCapabilities();
+    MutableCapabilities sauceOptions = new MutableCapabilities();
     RemoteWebDriver driver;
 
     @BeforeEach
     public void setName(TestInfo testInfo) {
-        caps.setCapability("sauce:name", testInfo.getDisplayName());
-        caps.setCapability("sauce:build", "Java Appium Latest with Se4 - " + TIME);
+        sauceOptions.setCapability("name", testInfo.getDisplayName());
+        sauceOptions.setCapability("build", "Java Appium Latest with Se3 - " + TIME);
     }
 
     @AfterEach
@@ -51,17 +52,6 @@ public class AbstractBaseTest {
         }
     }
 
-    public void validateGoogle(AppiumDriver<WebElement> driver) {
-        driver.get("http://google.com");
-
-        if (driver.getTitle().equals("Google")) {
-            driver.executeScript("sauce:job-result=passed");
-        } else {
-            driver.executeScript("sauce:job-result=failed");
-            fail("Unable to navigate");
-        }
-    }
-
     public void validateApp(AppiumDriver<WebElement> driver) {
         int found = driver.findElements(MobileBy.AccessibilityId("test-Username")).size();
 
@@ -70,6 +60,17 @@ public class AbstractBaseTest {
         } else {
             driver.executeScript("sauce:job-result=failed");
             fail("Unable to find element");
+        }
+    }
+
+    public void validateGoogle(AppiumDriver<WebElement> driver) {
+        driver.get("http://google.com");
+
+        if (driver.getTitle().equals("Google")) {
+            driver.executeScript("sauce:job-result=passed");
+        } else {
+            driver.executeScript("sauce:job-result=failed");
+            fail("Unable to navigate");
         }
     }
 }

@@ -21,12 +21,13 @@ public class AbstractBaseTest {
     String sauceUrl = "https://" + username + ":" + accessKey + "@ondemand.us-west-1.saucelabs.com/wd/hub";
     public static final String TIME = String.valueOf(System.currentTimeMillis());
     MutableCapabilities caps = new MutableCapabilities();
+    MutableCapabilities sauceOptions = new MutableCapabilities();
     RemoteWebDriver driver;
 
     @BeforeEach
     public void setName(TestInfo testInfo) {
-        caps.setCapability("sauce:name", testInfo.getDisplayName());
-        caps.setCapability("sauce:build", "Java Appium Latest with Se3 - " + TIME);
+        sauceOptions.setCapability("name", testInfo.getDisplayName());
+        sauceOptions.setCapability("build", "Java Appium Latest with Se3 - " + TIME);
     }
 
     @AfterEach

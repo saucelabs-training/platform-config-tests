@@ -12,9 +12,10 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void latestAndroidLatestAppium() {
-        caps.setCapability("sauce:appiumVersion", "1.20.2");
+        sauceOptions.setCapability("appiumVersion", "1.20.2");
         caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "11.0");
+        caps.setCapability("sauce:options", sauceOptions);
         caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "");
         caps.setCapability("appium:app", android);
@@ -25,9 +26,10 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void latestAndroidEarliestAppium() {
-        caps.setCapability("sauce:appiumVersion", "1.15.0");
+        sauceOptions.setCapability("appiumVersion", "1.15.0");
         caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "11.0");
+        caps.setCapability("sauce:options", sauceOptions);
         caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "");
         caps.setCapability("appium:app", android);
@@ -38,9 +40,10 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void earliestAndroidLatestAppium() {
-        caps.setCapability("sauce:appiumVersion", "1.20.2");
+        sauceOptions.setCapability("appiumVersion", "1.20.2");
         caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "5.1");
+        caps.setCapability("sauce:options", sauceOptions);
         caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "");
         caps.setCapability("appium:app", android);
@@ -51,9 +54,10 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void earliestAndroidEarliestAppium() {
-        caps.setCapability("sauce:appiumVersion", "1.15.0");
+        sauceOptions.setCapability("appiumVersion", "1.8.0");
         caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "5.1");
+        caps.setCapability("sauce:options", sauceOptions);
         caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "");
         caps.setCapability("appium:app", android);
@@ -64,9 +68,10 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void latestIOS() {
-        caps.setCapability("sauce:appiumVersion", "1.20.1");
+        sauceOptions.setCapability("appiumVersion", "1.21.0");
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         caps.setCapability("appium:platformVersion", "14.5");
+        caps.setCapability("sauce:options", sauceOptions);
         caps.setCapability("platformName", "iOS");
         caps.setCapability("browserName", "");
         caps.setCapability("appium:app", ios);
@@ -78,9 +83,10 @@ public class MobileAppTest extends AbstractBaseTest {
     @Test
     @Disabled("10.3 does not want to load app and this test takes forever to fail")
     public void earliestIOSStated() {
-        caps.setCapability("sauce:appiumVersion", "1.8.0");
+        sauceOptions.setCapability("appiumVersion", "1.8.0");
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         caps.setCapability("appium:platformVersion", "10.3");
+        caps.setCapability("sauce:options", sauceOptions);
         caps.setCapability("platformName", "iOS");
         caps.setCapability("browserName", "");
         caps.setCapability("appium:app", ios);
@@ -91,9 +97,10 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void earliestIOSActual() {
-        caps.setCapability("sauce:appiumVersion", "1.8.0");
+        sauceOptions.setCapability("appiumVersion", "1.8.0");
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         caps.setCapability("appium:platformVersion", "11.0");
+        caps.setCapability("sauce:options", sauceOptions);
         caps.setCapability("platformName", "iOS");
         caps.setCapability("browserName", "");
         caps.setCapability("appium:app", ios);
