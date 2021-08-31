@@ -9,6 +9,6 @@ task default: :spec
 
 desc 'Run tests in parallel'
 task :parallel do
-  result = system 'parallel_split_test spec/chrome_spec.rb'
+  result = system 'parallel_split_test spec'
   raise StandardError, "Not everything passed" unless result
 end
