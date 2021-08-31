@@ -9,7 +9,8 @@ describe 'Mobile with Appium' do
 
   describe 'Browser' do
     it 'runs latest Android with latest Appium' do
-      caps['sauce:appiumVersion'] = '1.20.2'
+      caps['sauce:options'] = {}
+      caps['sauce:options']['appiumVersion'] = '1.20.2'
       caps['appium:deviceName'] = "Android GoogleAPI Emulator"
       caps['appium:platformVersion'] = "11.0"
       caps['platformName'] = 'Android'
@@ -20,7 +21,8 @@ describe 'Mobile with Appium' do
     end
 
     it 'runs latest Android with earliest Appium' do
-      caps['sauce:appiumVersion'] = '1.15.0'
+      caps['sauce:options'] = {}
+      caps['sauce:options']['appiumVersion'] = '1.15.0'
       caps['appium:deviceName'] = "Android GoogleAPI Emulator"
       caps['appium:platformVersion'] = "11.0"
       caps['platformName'] = 'Android'
@@ -31,7 +33,8 @@ describe 'Mobile with Appium' do
     end
 
     it 'runs earliest Android with latest Appium' do
-      caps['sauce:appiumVersion'] = '1.20.2'
+      caps['sauce:options'] = {}
+      caps['sauce:options']['appiumVersion'] = '1.20.2'
       caps['appium:deviceName'] = "Android GoogleAPI Emulator"
       caps['appium:platformVersion'] = "5.1"
       caps['platformName'] = 'Android'
@@ -45,7 +48,8 @@ describe 'Mobile with Appium' do
 
     # 1.8.0 does not convert timeout calls, so get error
     it 'runs earliest Android with earliest Appium Stated' do
-      caps['sauce:appiumVersion'] = '1.8.0'
+      caps['sauce:options'] = {}
+      caps['sauce:options']['appiumVersion'] = '1.8.0'
       caps['appium:deviceName'] = "Android GoogleAPI Emulator"
       caps['appium:platformVersion'] = "5.1"
       caps['platformName'] = 'Android'
@@ -58,7 +62,8 @@ describe 'Mobile with Appium' do
     end
 
     it 'runs earliest Android with earliest Appium Actual' do
-      caps['sauce:appiumVersion'] = '1.9.1'
+      caps['sauce:options'] = {}
+      caps['sauce:options']['appiumVersion'] = '1.9.1'
       caps['appium:deviceName'] = "Android GoogleAPI Emulator"
       caps['appium:platformVersion'] = "6.0"
       caps['platformName'] = 'Android'
@@ -69,7 +74,8 @@ describe 'Mobile with Appium' do
     end
 
     it 'runs latest iOS' do
-      caps['sauce:appiumVersion'] = '1.20.1'
+      caps['sauce:options'] = {}
+      caps['sauce:options']['appiumVersion'] = '1.21.0'
       caps['appium:deviceName'] = "iPhone Simulator"
       caps['appium:platformVersion'] = "14.5"
       caps['platformName'] = 'iOS'
@@ -80,7 +86,8 @@ describe 'Mobile with Appium' do
     end
 
     it 'with earliest iOS' do
-      caps['sauce:appiumVersion'] = '1.8.0'
+      caps['sauce:options'] = {}
+      caps['sauce:options']['appiumVersion'] = '1.8.0'
       caps['appium:deviceName'] = "iPhone Simulator"
       caps['appium:platformVersion'] = "10.3"
       caps['platformName'] = 'iOS'
@@ -93,7 +100,8 @@ describe 'Mobile with Appium' do
 
   describe 'Native App' do
     it 'runs latest Android with latest Appium' do
-      caps['sauce:appiumVersion'] = '1.20.2'
+      caps['sauce:options'] = {}
+      caps['sauce:options']['appiumVersion'] = '1.20.2'
       caps['appium:deviceName'] = "Android GoogleAPI Emulator"
       caps['appium:platformVersion'] = "11.0"
       caps['platformName'] = 'Android'
@@ -106,7 +114,8 @@ describe 'Mobile with Appium' do
     end
 
     it 'runs latest Android with earliest Appium' do
-      caps['sauce:appiumVersion'] = '1.15.0'
+      caps['sauce:options'] = {}
+      caps['sauce:options']['appiumVersion'] = '1.15.0'
       caps['appium:deviceName'] = "Android GoogleAPI Emulator"
       caps['appium:platformVersion'] = "11.0"
       caps['platformName'] = 'Android'
@@ -119,7 +128,8 @@ describe 'Mobile with Appium' do
     end
 
     it 'runs earliest Android with latest Appium' do
-      caps['sauce:appiumVersion'] = '1.20.2'
+      caps['sauce:options'] = {}
+      caps['sauce:options']['appiumVersion'] = '1.20.2'
       caps['appium:deviceName'] = "Android GoogleAPI Emulator"
       caps['appium:platformVersion'] = "5.1"
       caps['platformName'] = 'Android'
@@ -132,7 +142,8 @@ describe 'Mobile with Appium' do
     end
 
     it 'runs earliest Android with earliest Appium' do
-      caps['sauce:appiumVersion'] = '1.8.0'
+      caps['sauce:options'] = {}
+      caps['sauce:options']['appiumVersion'] = '1.8.0'
       caps['appium:deviceName'] = "Android GoogleAPI Emulator"
       caps['appium:platformVersion'] = "5.1"
       caps['platformName'] = 'Android'
@@ -145,7 +156,8 @@ describe 'Mobile with Appium' do
     end
 
     it 'runs latest iOS' do
-      caps['sauce:appiumVersion'] = '1.20.1'
+      caps['sauce:options'] = {}
+      caps['sauce:options']['appiumVersion'] = '1.21.0'
       caps['appium:deviceName'] = "iPhone Simulator"
       caps['appium:platformVersion'] = "14.5"
       caps['platformName'] = 'iOS'
@@ -158,7 +170,8 @@ describe 'Mobile with Appium' do
 
     # 10.3 does not want to start an app
     it 'with earliest iOS Stated' do
-      caps['sauce:appiumVersion'] = '1.8.0'
+      caps['sauce:options'] = {}
+      caps['sauce:options']['appiumVersion'] = '1.8.0'
       caps['appium:deviceName'] = "iPhone Simulator"
       caps['appium:platformVersion'] = "10.3"
       caps['platformName'] = 'iOS'
@@ -170,7 +183,8 @@ describe 'Mobile with Appium' do
     end
 
     it 'with earliest iOS Actual' do
-      caps['sauce:appiumVersion'] = '1.8.0'
+      caps['sauce:options'] = {}
+      caps['sauce:options']['appiumVersion'] = '1.8.0'
       caps['appium:deviceName'] = "iPhone Simulator"
       caps['appium:platformVersion'] = "11.0"
       caps['platformName'] = 'iOS'

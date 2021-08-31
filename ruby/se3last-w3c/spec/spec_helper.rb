@@ -26,7 +26,6 @@ module Utils
     access_key = ENV['SAUCE_ACCESS_KEY']
     sauce_url = "https://#{username}:#{access_key}@ondemand.us-west-1.saucelabs.com/wd/hub"
 
-    caps['sauce:options'] ||= {}
     caps['sauce:options']['name'] = @name
     caps['sauce:options']['build'] = "Ruby SeLast W3C - #{ENV['BUILD_TIME']}"
 
@@ -44,7 +43,6 @@ module Utils
   end
 
   def start_appium_driver(caps)
-    caps['sauce:options'] ||= {}
     caps['sauce:options']['name'] = @name
     caps['sauce:options']['build'] = "Ruby SeLast W3C - #{ENV['BUILD_TIME']}"
 
