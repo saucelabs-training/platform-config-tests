@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "rspec/core/rake_task"
+ENV['BUILD_TIME'] = Time.now.to_s
 
 RSpec::Core::RakeTask.new(:spec)
 
@@ -8,6 +9,6 @@ task default: :spec
 
 desc 'Run tests in parallel'
 task :parallel do
-  result = system 'parallel_split_test spec'
+  result = system 'parallel_split_test spec/chrome_spec.rb'
   raise StandardError, "Not everything passed" unless result
 end
