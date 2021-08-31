@@ -22,7 +22,7 @@ jobs:
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-        run: npm run test.legacy -- --maxInstances=10
+        run: npm run test.legacy -- --maxInstances=5
   w3c-tests:
     name: W3C Tests
     runs-on: ubuntu-latest
@@ -40,4 +40,4 @@ jobs:
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-        run: npm run test.w3c -- --maxInstances=10
+        run: npm run test.w3c -- --maxInstances=5

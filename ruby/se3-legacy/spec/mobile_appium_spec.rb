@@ -45,7 +45,7 @@ describe 'Mobile with Appium' do
     end
 
     it 'runs earliest Android with earliest Appium Stated' do
-      pending('1.8.0 does not convert timeout calls, so get error')
+      skip('1.8.0 does not convert timeout calls, so get error')
       caps['sauce:options'] = {}
       caps['sauce:options']['appiumVersion'] = '1.8.0'
       caps['appium:deviceName'] = "Android GoogleAPI Emulator"
