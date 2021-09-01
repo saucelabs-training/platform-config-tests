@@ -8,6 +8,10 @@ jobs:
   legacy-tests:
     name: Legacy Tests
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        test: [ w3c, legacy, app, mobile ]
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node.js
@@ -17,27 +21,9 @@ jobs:
       - name: Install dependencies
         working-directory: ./js/
         run: npm install
-      - name: Run tests
+      - name: Run ${{ matrix.test }} tests
         working-directory: ./js/
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-        run: npm run test.legacy -- --maxInstances=5
-  w3c-tests:
-    name: W3C Tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-      - name: Install dependencies
-        working-directory: ./js/
-        run: npm install
-      - name: Run tests
-        working-directory: ./js/
-        env:
-          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-        run: npm run test.w3c -- --maxInstances=5
+        run: npm run test.${{ matrix.test }} -- --maxInstances=5

@@ -3,12 +3,6 @@ exports.config = {
     // Runner Configuration
     // ====================
     runner: 'local',
-    // ==================
-    // Specify Test Files
-    // ==================
-    specs: [
-        './test/specs/**/*.js'
-    ],
     // ============
     // Capabilities
     // ============

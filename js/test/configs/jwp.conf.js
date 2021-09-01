@@ -11,6 +11,8 @@ config.key = process.env.SAUCE_ACCESS_KEY;
 // If you don't provide the region, it defaults to `us`.
 config.region = process.env.REGION || 'us';
 
+config.specs = ['./test/specs/web.spec.js']
+
 // ============
 // Capabilities
 // ============

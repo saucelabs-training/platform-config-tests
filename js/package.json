@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test.mobile": "wdio test/configs/mobilebrowser.conf.js",
+    "test.app": "wdio test/configs/nativeapp.conf.js",
     "test.legacy": "wdio test/configs/jwp.conf.js",
     "test.w3c": "wdio test/configs/w3c.conf.js"
   },
