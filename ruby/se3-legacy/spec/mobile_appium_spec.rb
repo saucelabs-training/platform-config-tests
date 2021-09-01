@@ -45,6 +45,7 @@ describe 'Mobile with Appium' do
     end
 
     it 'runs earliest Android with earliest Appium Stated' do
+      skip('1.8.0 does not convert timeout calls, so get error')
       caps['platformName'] = 'Android'
       caps['browserName'] = 'Browser'
       caps['appium:deviceName'] = 'Android Emulator'
