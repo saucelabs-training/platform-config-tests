@@ -12,13 +12,12 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void latestAndroidLatestAppium() {
-        sauceOptions.setCapability("appiumVersion", "1.20.2");
-        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
-        caps.setCapability("appium:platformVersion", "11.0");
-        caps.setCapability("sauce:options", sauceOptions);
         caps.setCapability("platformName", "Android");
-        caps.setCapability("browserName", "");
         caps.setCapability("appium:app", android);
+        caps.setCapability("appium:deviceName", "Google Pixel 3a GoogleAPI Emulator");
+        caps.setCapability("appium:platformVersion", "11.0");
+        sauceOptions.setCapability("appiumVersion", "1.20.2");
+        caps.setCapability("sauce:options", sauceOptions);
 
         driver = startAndroidDriver(caps);
         validateApp((AndroidDriver<WebElement>) driver);
@@ -26,13 +25,12 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void latestAndroidEarliestAppium() {
-        sauceOptions.setCapability("appiumVersion", "1.15.0");
-        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
-        caps.setCapability("appium:platformVersion", "11.0");
-        caps.setCapability("sauce:options", sauceOptions);
         caps.setCapability("platformName", "Android");
-        caps.setCapability("browserName", "");
         caps.setCapability("appium:app", android);
+        caps.setCapability("appium:deviceName", "Google Pixel 3a GoogleAPI Emulator");
+        caps.setCapability("appium:platformVersion", "11.0");
+        sauceOptions.setCapability("appiumVersion", "1.15.0");
+        caps.setCapability("sauce:options", sauceOptions);
 
         driver = startAndroidDriver(caps);
         validateApp((AndroidDriver<WebElement>) driver);
@@ -40,13 +38,12 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void earliestAndroidLatestAppium() {
-        sauceOptions.setCapability("appiumVersion", "1.20.2");
-        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
-        caps.setCapability("appium:platformVersion", "5.1");
-        caps.setCapability("sauce:options", sauceOptions);
         caps.setCapability("platformName", "Android");
-        caps.setCapability("browserName", "");
         caps.setCapability("appium:app", android);
+        caps.setCapability("appium:deviceName", "Android Emulator");
+        caps.setCapability("appium:platformVersion", "5.1");
+        sauceOptions.setCapability("appiumVersion", "1.20.2");
+        caps.setCapability("sauce:options", sauceOptions);
 
         driver = startAndroidDriver(caps);
         validateApp((AndroidDriver<WebElement>) driver);
@@ -54,13 +51,12 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void earliestAndroidEarliestAppium() {
-        sauceOptions.setCapability("appiumVersion", "1.8.0");
-        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
-        caps.setCapability("appium:platformVersion", "5.1");
-        caps.setCapability("sauce:options", sauceOptions);
         caps.setCapability("platformName", "Android");
-        caps.setCapability("browserName", "");
         caps.setCapability("appium:app", android);
+        caps.setCapability("appium:deviceName", "Android Emulator");
+        caps.setCapability("appium:platformVersion", "5.1");
+        sauceOptions.setCapability("appiumVersion", "1.8.0");
+        caps.setCapability("sauce:options", sauceOptions);
 
         driver = startAndroidDriver(caps);
         validateApp((AndroidDriver<WebElement>) driver);
@@ -68,13 +64,12 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void latestIOS() {
-        sauceOptions.setCapability("appiumVersion", "1.21.0");
+        caps.setCapability("platformName", "iOS");
+        caps.setCapability("appium:app", ios);
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         caps.setCapability("appium:platformVersion", "14.5");
+        sauceOptions.setCapability("appiumVersion", "1.20.1");
         caps.setCapability("sauce:options", sauceOptions);
-        caps.setCapability("platformName", "iOS");
-        caps.setCapability("browserName", "");
-        caps.setCapability("appium:app", ios);
 
         driver = startIOSDriver(caps);
         validateApp((IOSDriver<WebElement>) driver);
@@ -83,13 +78,12 @@ public class MobileAppTest extends AbstractBaseTest {
     @Test
     @Disabled("10.3 does not want to load app and this test takes forever to fail")
     public void earliestIOSStated() {
-        sauceOptions.setCapability("appiumVersion", "1.8.0");
+        caps.setCapability("platformName", "iOS");
+        caps.setCapability("appium:app", ios);
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         caps.setCapability("appium:platformVersion", "10.3");
+        sauceOptions.setCapability("appiumVersion", "1.8.0");
         caps.setCapability("sauce:options", sauceOptions);
-        caps.setCapability("platformName", "iOS");
-        caps.setCapability("browserName", "");
-        caps.setCapability("appium:app", ios);
 
         driver = startIOSDriver(caps);
         validateApp((IOSDriver<WebElement>) driver);
@@ -97,13 +91,12 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void earliestIOSActual() {
-        sauceOptions.setCapability("appiumVersion", "1.8.0");
+        caps.setCapability("platformName", "iOS");
+        caps.setCapability("appium:app", ios);
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         caps.setCapability("appium:platformVersion", "11.0");
+        sauceOptions.setCapability("appiumVersion", "1.8.0");
         caps.setCapability("sauce:options", sauceOptions);
-        caps.setCapability("platformName", "iOS");
-        caps.setCapability("browserName", "");
-        caps.setCapability("appium:app", ios);
 
         driver = startIOSDriver(caps);
         validateApp((IOSDriver<WebElement>) driver);
