@@ -27,7 +27,7 @@ module Utils
     sauce_url = "https://#{username}:#{access_key}@ondemand.us-west-1.saucelabs.com/wd/hub"
 
     caps['sauce:options']['name'] = @name
-    caps['sauce:options']['build'] = "Ruby SeLast W3C - #{ENV['BUILD_TIME']}"
+    caps['sauce:options']['build'] = "Ruby Se3 Last W3C - #{ENV['BUILD_TIME']}"
 
     @driver = Selenium::WebDriver.for(:remote,
                                       url: sauce_url,
@@ -44,7 +44,7 @@ module Utils
 
   def start_appium_driver(caps)
     caps['sauce:options']['name'] = @name
-    caps['sauce:options']['build'] = "Ruby SeLast W3C - #{ENV['BUILD_TIME']}"
+    caps['sauce:options']['build'] = "Ruby Se3 Last W3C - #{ENV['BUILD_TIME']}"
 
     @driver = Appium::Driver.new({caps: caps.as_json }, false).start_driver
   end
