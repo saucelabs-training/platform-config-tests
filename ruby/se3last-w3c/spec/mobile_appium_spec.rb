@@ -176,9 +176,9 @@ describe 'Mobile with Appium' do
       caps['platformName'] = 'iOS'
       caps['appium:app'] = iOS
       caps['appium:deviceName'] = 'iPhone Simulator'
-      caps['appium:platformVersion'] = '10.3'
+      caps['appium:platformVersion'] = '11.0'
       caps['sauce:options'] = {}
-      caps['sauce:options']['appiumVersion'] = '1.9.1'
+      caps['sauce:options']['appiumVersion'] = '1.8.0'
 
       start_appium_driver(caps)
       validate_app
