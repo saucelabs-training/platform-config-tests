@@ -10,7 +10,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-// Expect many of these to fail due to a bug in Selenium 4 beta 4
+// Expect many of these to fail due to a bug in Selenium 4 (still in RC 1)
 public class MobileSeTest {
     MutableCapabilities caps = new MutableCapabilities();
     MutableCapabilities sauceOptions = new MutableCapabilities();

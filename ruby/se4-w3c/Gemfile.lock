@@ -23,7 +23,7 @@ GEM
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
     rubyzip (2.3.2)
-    selenium-webdriver (4.0.0.beta4)
+    selenium-webdriver (4.0.0.rc1)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2)
       rubyzip (>= 1.2.2)
@@ -35,7 +35,7 @@ DEPENDENCIES
   parallel_split_test
   rake (~> 13.0)
   rspec (~> 3.0)
-  selenium-webdriver (= 4.0.0.beta4)
+  selenium-webdriver (= 4.0.0.rc1)
 
 BUNDLED WITH
    2.2.9
