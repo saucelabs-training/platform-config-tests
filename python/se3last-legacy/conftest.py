@@ -17,7 +17,7 @@ class Helpers:
         remote_url = "http://{}:{}@ondemand.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
 
         caps['name'] = inspect.currentframe().f_back.f_code.co_name
-        caps['build'] = 'Python Se3Last Legacy - {}'.format(build_time)
+        caps['build'] = 'Python Se3Last Legacy - {}'.format(Helpers.build_time)
 
         driver = webdriver.Remote(remote_url, desired_capabilities=caps)
         driver.get("http://google.com")

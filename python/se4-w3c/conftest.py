@@ -37,7 +37,7 @@ class Helpers:
         remote_url = "http://{}:{}@ondemand.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
 
         caps['name'] = inspect.currentframe().f_back.f_code.co_name
-        caps['build'] = 'Python Se4 W3C - {}'.format(build_time)
+        caps['build'] = 'Python Se4 W3C - {}'.format(Helpers.build_time)
         return webdriver.Remote(remote_url, desired_capabilities=caps)
 
     @staticmethod
@@ -47,7 +47,7 @@ class Helpers:
         remote_url = "http://{}:{}@ondemand.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
 
         caps['sauce:options']['name'] = inspect.currentframe().f_back.f_code.co_name
-        caps['sauce:options']['build'] = 'Python Se4 W3C - {}'.format(build_time)
+        caps['sauce:options']['build'] = 'Python Se4 W3C - {}'.format(Helpers.build_time)
 
         return webdriver.Remote(remote_url, desired_capabilities=caps)
 
@@ -58,7 +58,7 @@ class Helpers:
         remote_url = "http://{}:{}@ondemand.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
 
         caps['sauce:options']['name'] = inspect.currentframe().f_back.f_code.co_name
-        caps['sauce:options']['build'] = 'Python Se4 W3C - {}'.format(build_time)
+        caps['sauce:options']['build'] = 'Python Se4 W3C - {}'.format(Helpers.build_time)
 
         return appiumdriver.Remote(remote_url, desired_capabilities=caps)
 
