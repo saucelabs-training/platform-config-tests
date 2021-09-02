@@ -16,11 +16,11 @@ RSpec.configure do |config|
   end
 
   config.after do |example|
-    return if @driver.nil?
-
-    result = example.exception ? "failed" : "passed"
-    @driver.execute_script("sauce:job-result=#{result}")
-    @driver.quit
+    unless @driver.nil?
+      result = example.exception ? "failed" : "passed"
+      @driver.execute_script("sauce:job-result=#{result}")
+      @driver.quit
+    end
   end
 end
 

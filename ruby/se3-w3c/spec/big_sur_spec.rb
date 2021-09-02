@@ -9,7 +9,7 @@ describe 'Big Sur' do
     capabilities[:platform_name] = 'macOS 11.00'
     capabilities['sauce:options'] = {}
 
-    start_desktop_driver(capabilities)
+    start_driver(capabilities)
     validate_google
   end
 
@@ -19,7 +19,7 @@ describe 'Big Sur' do
     capabilities[:platform_name] = 'macOS 11.00'
     capabilities['sauce:options'] = {}
 
-    start_desktop_driver(capabilities)
+    start_driver(capabilities)
     validate_google
   end
 
@@ -29,7 +29,7 @@ describe 'Big Sur' do
     capabilities[:platform_name] = 'macOS 11.00'
     capabilities['sauce:options'] = {}
 
-    start_desktop_driver(capabilities)
+    start_driver(capabilities)
     validate_google
   end
 
@@ -39,7 +39,7 @@ describe 'Big Sur' do
     capabilities[:platform_name] = 'macOS 11.00'
     capabilities['sauce:options'] = {}
 
-    start_desktop_driver(capabilities)
+    start_driver(capabilities)
     validate_google
   end
 
@@ -49,7 +49,7 @@ describe 'Big Sur' do
     capabilities[:platform_name] = 'macOS 11.00'
     capabilities['sauce:options'] = {}
 
-    start_desktop_driver(capabilities)
+    start_driver(capabilities)
     validate_google
   end
 
@@ -59,7 +59,7 @@ describe 'Big Sur' do
     capabilities[:platform_name] = 'macOS 11.00'
     capabilities['sauce:options'] = {}
 
-    start_desktop_driver(capabilities)
+    start_driver(capabilities)
     validate_google
   end
 
@@ -69,7 +69,7 @@ describe 'Big Sur' do
     capabilities[:platform_name] = 'macOS 11.00'
     capabilities['sauce:options'] = {}
 
-    start_desktop_driver(capabilities)
+    start_driver(capabilities)
     validate_google
   end
 
@@ -79,7 +79,7 @@ describe 'Big Sur' do
     capabilities[:platform_name] = 'macOS 11.00'
     capabilities['sauce:options'] = {}
 
-    start_desktop_driver(capabilities)
+    start_driver(capabilities)
     validate_google
   end
 
@@ -89,7 +89,7 @@ describe 'Big Sur' do
     capabilities[:platform_name] = 'macOS 11.00'
     capabilities['sauce:options'] = {}
 
-    start_desktop_driver(capabilities)
+    start_driver(capabilities)
     validate_google
   end
 
@@ -99,7 +99,7 @@ describe 'Big Sur' do
     capabilities[:platform_name] = 'macOS 11.00'
     capabilities['sauce:options'] = {}
 
-    start_desktop_driver(capabilities)
+    start_driver(capabilities)
     validate_google
   end
 end

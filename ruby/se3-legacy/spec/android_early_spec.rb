@@ -49,7 +49,7 @@ describe 'Earliest Android' do
     it 'Selenium Mobile ' do
       caps = Selenium::WebDriver::Remote::Capabilities.new
       caps[:platform_name] = 'Android'
-      caps['appium:app'] = 'as'
+      caps['appium:app'] = app
       caps['appium:deviceName'] = 'Android GoogleAPI Emulator'
       caps['appium:platformVersion'] = '5.1'
       caps['sauce:options'] = {}
@@ -63,7 +63,7 @@ describe 'Earliest Android' do
       warn 'Platform Configurator says 1.8.0, but 1.9.1+ works'
       caps = Selenium::WebDriver::Remote::Capabilities.new
       caps[:platform_name] = 'Android'
-      caps['appium:app'] = 'as'
+      caps['appium:app'] = app
       caps['appium:deviceName'] = 'Android GoogleAPI Emulator'
       caps['appium:platformVersion'] = '5.1'
       caps['sauce:options'] = {}
