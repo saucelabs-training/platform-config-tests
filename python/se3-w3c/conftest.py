@@ -6,10 +6,10 @@ import os
 import time
 from selenium import webdriver
 
+os.environ["BUILD_TIME"] = os.environ["BUILD_TIME"] or datetime.utcnow()
+
 
 class Helpers:
-    build_time = datetime.utcnow()
-
     @staticmethod
     def validate_google(caps):
         sauce_username = os.environ["SAUCE_USERNAME"]
@@ -17,7 +17,7 @@ class Helpers:
         remote_url = "http://{}:{}@ondemand.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
 
         caps['sauce:options']['name'] = inspect.currentframe().f_back.f_code.co_name
-        caps['sauce:options']['build'] = 'Python Se3 W3C - {}'.format(Helpers.build_time)
+        caps['sauce:options']['build'] = 'Python Se3 W3C - {}'.format(os.environ.get("BUILD_TIME"))
 
         driver = webdriver.Remote(remote_url, desired_capabilities=caps)
         driver.get("http://google.com")

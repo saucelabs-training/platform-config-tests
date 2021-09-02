@@ -8,10 +8,9 @@ import time
 from selenium import webdriver
 from appium import webdriver as appiumdriver
 
+os.environ["BUILD_TIME"] = os.environ["BUILD_TIME"] or datetime.utcnow()
 
 class Helpers:
-    build_time = datetime.utcnow()
-
     @staticmethod
     def validate_google(driver):
         driver.get("http://google.com")
@@ -37,7 +36,7 @@ class Helpers:
         remote_url = "http://{}:{}@ondemand.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
 
         caps['name'] = inspect.currentframe().f_back.f_code.co_name
-        caps['build'] = 'Python Se4 W3C - {}'.format(Helpers.build_time)
+        caps['build'] = 'Python Se4 W3C - {}'.format(os.environ.get("BUILD_TIME"))
         return webdriver.Remote(remote_url, desired_capabilities=caps)
 
     @staticmethod
@@ -47,7 +46,7 @@ class Helpers:
         remote_url = "http://{}:{}@ondemand.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
 
         caps['sauce:options']['name'] = inspect.currentframe().f_back.f_code.co_name
-        caps['sauce:options']['build'] = 'Python Se4 W3C - {}'.format(Helpers.build_time)
+        caps['sauce:options']['build'] = 'Python Se4 W3C - {}'.format(os.environ.get("BUILD_TIME"))
 
         return webdriver.Remote(remote_url, desired_capabilities=caps)
 
@@ -58,7 +57,7 @@ class Helpers:
         remote_url = "http://{}:{}@ondemand.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
 
         caps['sauce:options']['name'] = inspect.currentframe().f_back.f_code.co_name
-        caps['sauce:options']['build'] = 'Python Se4 W3C - {}'.format(Helpers.build_time)
+        caps['sauce:options']['build'] = 'Python Se4 W3C - {}'.format(os.environ.get("BUILD_TIME"))
 
         return appiumdriver.Remote(remote_url, desired_capabilities=caps)
 
