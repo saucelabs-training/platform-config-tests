@@ -12,9 +12,14 @@ RSpec.configure do |config|
 
   config.before do |example|
     @name = example.full_description
+    @build_name = "Ruby Se3 W3C - #{ENV['BUILD_TIME']}"
   end
 
-  config.after do
+  config.after do |example|
+    return if @driver.nil?
+
+    result = example.exception ? "failed" : "passed"
+    @driver.execute_script("sauce:job-result=#{result}")
     @driver.quit
   end
 end
@@ -26,7 +31,7 @@ module Utils
     sauce_url = "https://#{username}:#{access_key}@ondemand.us-west-1.saucelabs.com/wd/hub"
 
     caps['sauce:options'][:name] = @name
-    caps['sauce:options'][:build] = "Ruby Se3 W3C - #{ENV['BUILD_TIME']}"
+    caps['sauce:options'][:build] = @build_name
 
     @driver = Selenium::WebDriver.for(:remote,
                                       url: sauce_url,
@@ -35,9 +40,7 @@ module Utils
 
   def validate_google
     @driver.get("http://google.com")
-    sleep 1
 
-    result = @driver.title == "Google" ? "passed" : "failed"
-    @driver.execute_script("sauce:job-result=#{result}")
+    expect(@driver.title).to eq("Google")
   end
 end
