@@ -1,14 +1,11 @@
-import inspect
-from datetime import datetime
-
+import os
+import sys
+import time
 
 import pytest
-import os
-import time
-from selenium import webdriver
 from appium import webdriver as appiumdriver
+from selenium import webdriver
 
-os.environ["BUILD_TIME"] = os.environ["BUILD_TIME"] or datetime.utcnow()
 
 class Helpers:
     @staticmethod
@@ -35,8 +32,8 @@ class Helpers:
         sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
         remote_url = "http://{}:{}@ondemand.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
 
-        caps['name'] = inspect.currentframe().f_back.f_code.co_name
-        caps['build'] = 'Python Se4 W3C - {}'.format(os.environ.get("BUILD_TIME"))
+        caps['sauce:options']['name'] = sys._getframe(1).f_code.co_name
+        caps['sauce:options']['build'] = 'Python Se4 W3C - {}'.format(os.environ.get("BUILD_TIME"))
         return webdriver.Remote(remote_url, desired_capabilities=caps)
 
     @staticmethod
@@ -45,7 +42,7 @@ class Helpers:
         sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
         remote_url = "http://{}:{}@ondemand.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
 
-        caps['sauce:options']['name'] = inspect.currentframe().f_back.f_code.co_name
+        caps['sauce:options']['name'] = sys._getframe(1).f_code.co_name
         caps['sauce:options']['build'] = 'Python Se4 W3C - {}'.format(os.environ.get("BUILD_TIME"))
 
         return webdriver.Remote(remote_url, desired_capabilities=caps)
@@ -56,7 +53,7 @@ class Helpers:
         sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
         remote_url = "http://{}:{}@ondemand.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
 
-        caps['sauce:options']['name'] = inspect.currentframe().f_back.f_code.co_name
+        caps['sauce:options']['name'] = sys._getframe(1).f_code.co_name
         caps['sauce:options']['build'] = 'Python Se4 W3C - {}'.format(os.environ.get("BUILD_TIME"))
 
         return appiumdriver.Remote(remote_url, desired_capabilities=caps)
