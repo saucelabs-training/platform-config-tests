@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "rspec/core/rake_task"
-ENV['BUILD_TIME'] = Time.now.to_s
+ENV['BUILD_TIME'] = Time.now.strftime("%s")
 
 RSpec::Core::RakeTask.new(:spec)
 
