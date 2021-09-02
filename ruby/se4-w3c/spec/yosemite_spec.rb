@@ -9,7 +9,7 @@ describe 'Yosemite' do
     capabilities[:platform_name] = 'OS X 10.10'
     capabilities['sauce:options'] = {}
 
-    start_desktop_driver(caps)
+    start_desktop_driver(capabilities)
     validate_google
   end
 
@@ -19,7 +19,7 @@ describe 'Yosemite' do
     capabilities[:platform_name] = 'OS X 10.10'
     capabilities['sauce:options'] = {}
 
-    start_desktop_driver(caps)
+    start_desktop_driver(capabilities)
     validate_google
   end
 
@@ -29,7 +29,7 @@ describe 'Yosemite' do
     capabilities[:platform_name] = 'OS X 10.10'
     capabilities['sauce:options'] = {}
 
-    start_desktop_driver(caps)
+    start_desktop_driver(capabilities)
     validate_google
   end
 
@@ -39,7 +39,7 @@ describe 'Yosemite' do
     capabilities[:platform_name] = 'OS X 10.10'
     capabilities['sauce:options'] = {}
 
-    start_desktop_driver(caps)
+    start_desktop_driver(capabilities)
     validate_google
   end
 end

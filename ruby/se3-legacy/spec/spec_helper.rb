@@ -60,7 +60,7 @@ module Utils
     caps['appium:appWaitActivity'] = 'com.swaglabsmobileapp.MainActivity' if caps[:platform_name] == 'Android'
 
     # Appium defaults to Sauce when ENV is detected
-    @driver = Appium::Driver.new({caps: caps.as_json }, false).start_desktop_driver
+    @driver = Appium::Driver.new({caps: caps.as_json }, false).start_driver
   end
 
   def validate_app
