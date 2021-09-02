@@ -4,7 +4,8 @@ def test_latest_win10(helpers):
     caps['platform'] = 'Windows 10'
     caps['version'] = 'latest'
 
-    helpers.validate_google(caps)
+    driver = helpers.start_driver(caps)
+    helpers.validate_google(driver)
 
 def test_late_win10(helpers):
     caps = {}
@@ -12,7 +13,8 @@ def test_late_win10(helpers):
     caps['platform'] = 'Windows 10'
     caps['version'] = '92'
 
-    helpers.validate_google(caps)
+    driver = helpers.start_driver(caps)
+    helpers.validate_google(driver)
 
 def test_early_win10(helpers):
     caps = {}
@@ -20,7 +22,8 @@ def test_early_win10(helpers):
     caps['platform'] = 'Windows 10'
     caps['version'] = '13'
 
-    helpers.validate_google(caps)
+    driver = helpers.start_driver(caps)
+    helpers.validate_google(driver)
 
 def test_late_yosemite(helpers):
     caps = {}
@@ -28,7 +31,8 @@ def test_late_yosemite(helpers):
     caps['platform'] = 'OS X 10.10'
     caps['version'] = '81'
 
-    helpers.validate_google(caps)
+    driver = helpers.start_driver(caps)
+    helpers.validate_google(driver)
 
 def test_early_yosemite(helpers):
     caps = {}
@@ -36,7 +40,8 @@ def test_early_yosemite(helpers):
     caps['platform'] = 'OS X 10.10'
     caps['version'] = '79'
 
-    helpers.validate_google(caps)
+    driver = helpers.start_driver(caps)
+    helpers.validate_google(driver)
 
 def test_latest_big_sur(helpers):
     caps = {}
@@ -44,7 +49,8 @@ def test_latest_big_sur(helpers):
     caps['platform'] = 'macOS 11.00'
     caps['version'] = 'latest'
 
-    helpers.validate_google(caps)
+    driver = helpers.start_driver(caps)
+    helpers.validate_google(driver)
 
 def test_late_big_sur(helpers):
     caps = {}
@@ -52,7 +58,8 @@ def test_late_big_sur(helpers):
     caps['platform'] = 'macOS 11.00'
     caps['version'] = '92'
 
-    helpers.validate_google(caps)
+    driver = helpers.start_driver(caps)
+    helpers.validate_google(driver)
 
 def test_early_big_sur(helpers):
     caps = {}
@@ -60,6 +67,5 @@ def test_early_big_sur(helpers):
     caps['platform'] = 'macOS 11.00'
     caps['version'] = '79'
 
-    helpers.validate_google(caps)
-
-
+    driver = helpers.start_driver(caps)
+    helpers.validate_google(driver)

@@ -4,7 +4,8 @@ def test_yosemite(helpers):
     caps['platform'] = 'OS X 10.10'
     caps['version'] = '8'
 
-    helpers.validate_google(caps)
+    driver = helpers.start_driver(caps)
+    helpers.validate_google(driver)
 
 def test_big_sur(helpers):
     caps = {}
@@ -12,4 +13,5 @@ def test_big_sur(helpers):
     caps['platform'] = 'macOS 11.00'
     caps['version'] = '14'
 
-    helpers.validate_google(caps)
+    driver = helpers.start_driver(caps)
+    helpers.validate_google(driver)

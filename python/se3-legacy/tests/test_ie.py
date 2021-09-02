@@ -4,7 +4,8 @@ def test_win10(helpers):
     caps['platform'] = 'Windows 10'
     caps['version'] = '11'
 
-    helpers.validate_google(caps)
+    driver = helpers.start_driver(caps)
+    helpers.validate_google(driver)
 
 def test_late_win7(helpers):
     caps = {}
@@ -12,7 +13,8 @@ def test_late_win7(helpers):
     caps['platform'] = 'Windows 7'
     caps['version'] = '11'
 
-    helpers.validate_google(caps)
+    driver = helpers.start_driver(caps)
+    helpers.validate_google(driver)
 
 def test_early_win7(helpers):
     caps = {}
@@ -20,4 +22,5 @@ def test_early_win7(helpers):
     caps['platform'] = 'Windows 7'
     caps['version'] = '9'
 
-    helpers.validate_google(caps)
+    driver = helpers.start_driver(caps)
+    helpers.validate_google(driver)
