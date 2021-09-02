@@ -11,10 +11,11 @@ namespace Se3Legacy
         protected IWebDriver _driver;
         private string _sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME");
         private string _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
+        public TestContext TestContext { get; set; }
 
         public void StartDriver(ICapabilities capabilities)
         {
-            string url = "https://" + _sauceUserName + ":" + _sauceAccessKey + "@/Users/titusfortner/code/platform-config-tests/dotnet/se3-legacy";
+            string url = "https://" + _sauceUserName + ":" + _sauceAccessKey + "@ondemand.us-west-1.saucelabs.com/wd/hub";
             _driver = new RemoteWebDriver(new Uri(url), capabilities);
         }
 
