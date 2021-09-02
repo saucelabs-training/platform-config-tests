@@ -6,10 +6,10 @@ import os
 import time
 from selenium import webdriver
 
-build_time = datetime.utcnow()
-
 
 class Helpers:
+    build_time = datetime.utcnow()
+
     @staticmethod
     def validate_google(caps):
         sauce_username = os.environ["SAUCE_USERNAME"]

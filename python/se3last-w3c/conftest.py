@@ -8,10 +8,10 @@ import time
 from selenium import webdriver
 from appium import webdriver as appiumdriver
 
-build_time = datetime.utcnow()
-
 
 class Helpers:
+    build_time = datetime.utcnow()
+
     @staticmethod
     def validate_google(driver):
         driver.get("http://google.com")

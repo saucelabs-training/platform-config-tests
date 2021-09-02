@@ -1,17 +1,16 @@
 import inspect
 from datetime import datetime
 
-
 import pytest
 import os
 import time
 from selenium import webdriver
 from appium import webdriver as appiumdriver
 
-build_time = datetime.utcnow()
-
 
 class Helpers:
+    build_time = datetime.utcnow()
+
     @staticmethod
     def validate_google(driver):
         driver.get("http://google.com")
@@ -24,7 +23,6 @@ class Helpers:
 
     @staticmethod
     def validate_app(driver):
-
         elements = driver.find_elements_by_accessibility_id('test-Username')
         result = 'passed' if len(elements) == 1 else 'failed'
 
@@ -61,6 +59,7 @@ class Helpers:
         caps['sauce:options']['build'] = 'Python Se3 Legacy - {}'.format(build_time)
 
         return appiumdriver.Remote(remote_url, desired_capabilities=caps)
+
 
 @pytest.fixture
 def helpers():
