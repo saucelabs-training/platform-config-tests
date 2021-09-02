@@ -22,9 +22,10 @@ describe 'Linux' do
   end
 
   it 'late firefox version' do
+    warn "Ruby specific issue where default firefox capabilities don't work > v38 even though should be 48"
     caps = Selenium::WebDriver::Remote::Capabilities.firefox
     caps[:platform] = 'Linux'
-    caps[:version] = '45'
+    caps[:version] = '38'
 
     start_driver(caps)
     validate_google

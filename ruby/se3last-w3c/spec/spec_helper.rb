@@ -48,6 +48,7 @@ module Utils
   def start_appium_driver(caps)
     caps['sauce:options']['name'] = @name
     caps['sauce:options']['build'] = @build_name
+    caps['appium:appWaitActivity'] = 'com.swaglabsmobileapp.MainActivity' if caps[:platform_name] == 'Android'
 
     @driver = Appium::Driver.new({caps: caps.as_json }, false).start_driver
   end
