@@ -76,7 +76,7 @@ describe 'IOS' do
       warn 'Earliest iOS is 10.3, but only 11+ works'
       caps = Selenium::WebDriver::Remote::Capabilities.new
       caps[:platform_name] = 'iOS'
-      caps['appium:app'] = 'afsda'
+      caps['appium:app'] = app
       caps['appium:deviceName'] = 'iPhone Simulator'
       caps['appium:platformVersion'] = '11.0'
       caps['sauce:options'] = {}
