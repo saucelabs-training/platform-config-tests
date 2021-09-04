@@ -15,12 +15,14 @@ jobs:
         with:
           dotnet-version: 3.1.101
       - name: Install dependencies
-        working-directory: java/${{ matrix.dir }}
+        working-directory: dotnet/se3-legacy
         run: |
           dotnet restore se3-legacy.csproj --verbosity detailed
       - name: Build
+        working-directory: dotnet/se3-legacy
         run: dotnet build --configuration Release --no-restore
       - name: Test
+        working-directory: dotnet/se3-legacy
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
