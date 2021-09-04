@@ -1,0 +1,27 @@
+name: .NET Tests
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  csharp-tests:
+    name: C# Tests
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.101
+      - name: Install dependencies
+        working-directory: java/${{ matrix.dir }}
+        run: |
+          dotnet restore se3-legacy.csproj --verbosity detailed
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+      - name: Test
+        env:
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+        run: BUILD_TIME=$(date +"%s") dotnet test --no-restore --verbosity normal
