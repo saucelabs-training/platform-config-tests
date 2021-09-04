@@ -26,7 +26,7 @@ namespace Se3Legacy
             capabilities.SetCapability("username", username);
             capabilities.SetCapability("accessKey", accessKey);
             capabilities.SetCapability("name", TestContext.TestName);
-            capabilities.SetCapability("build", "C# Se3 Legacy - " + buildTime);
+            capabilities.SetCapability("build", "DotNet Se3 Legacy - " + buildTime);
 
             _driver = new RemoteWebDriver(new Uri(Url), capabilities);
         }
@@ -37,7 +37,7 @@ namespace Se3Legacy
             sauceOptions.Add("username", username);
             sauceOptions.Add("accessKey", accessKey);
             sauceOptions.Add("name", TestContext.TestName);
-            sauceOptions.Add("build", "C# Se3 Legacy - " + buildTime);
+            sauceOptions.Add("build", "DotNet Se3 Legacy - " + buildTime);
         }
 
         public void StartMobileDriver(DesiredCapabilities capabilities)
