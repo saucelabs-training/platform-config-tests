@@ -26,4 +26,4 @@ jobs:
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-        run: BUILD_TIME=$(date +"%s") dotnet test --no-restore --verbosity normal
+        run: set BUILD_TIME=%TIME% dotnet test --no-restore --verbosity normal
