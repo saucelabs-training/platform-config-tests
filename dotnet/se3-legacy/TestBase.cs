@@ -18,7 +18,13 @@ namespace Se3Legacy
         private string accessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
         private const string Url = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
         private string buildTime = Environment.GetEnvironmentVariable("BUILD_TIME");
+        private string buildNumber = Environment.GetEnvironmentVariable("GITHUB_RUN_ID");
 
+        public string GetBuildNumber()
+        {
+            return buildNumber ?? buildTime;
+        }
+        
         public TestContext TestContext { get; set; }
 
         public void StartDriver(DesiredCapabilities capabilities)
@@ -26,7 +32,7 @@ namespace Se3Legacy
             capabilities.SetCapability("username", username);
             capabilities.SetCapability("accessKey", accessKey);
             capabilities.SetCapability("name", TestContext.TestName);
-            capabilities.SetCapability("build", "DotNet Se3 Legacy - " + buildTime);
+            capabilities.SetCapability("build", "DotNet Se3 Legacy - " + GetBuildNumber());
 
             _driver = new RemoteWebDriver(new Uri(Url), capabilities);
         }
