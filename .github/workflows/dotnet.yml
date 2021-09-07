@@ -8,6 +8,10 @@ jobs:
   csharp-tests:
     name: C# Tests
     runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        dir: [ se3-legacy, se3last-w3c ]
     steps:
       - uses: actions/checkout@v2
       - name: Setup .NET Core
@@ -15,14 +19,14 @@ jobs:
         with:
           dotnet-version: 5.0.x
       - name: Install dependencies
-        working-directory: dotnet/se3-legacy
+        working-directory: dotnet/${{ matrix.dir }}
         run: |
-          dotnet restore se3-legacy.csproj --verbosity detailed
-      - name: Build
-        working-directory: dotnet/se3-legacy
+          dotnet restore ${{ matrix.dir }}.csproj --verbosity detailed
+      - name: Run ${{ matrix.dir }} tests
+        working-directory: dotnet/${{ matrix.dir }}
         run: dotnet build --configuration Release --no-restore
       - name: Test
-        working-directory: dotnet/se3-legacy
+        working-directory: dotnet/${{ matrix.dir }}
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
