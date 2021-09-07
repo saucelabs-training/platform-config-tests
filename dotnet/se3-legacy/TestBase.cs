@@ -43,7 +43,7 @@ namespace Se3Legacy
             sauceOptions.Add("username", username);
             sauceOptions.Add("accessKey", accessKey);
             sauceOptions.Add("name", TestContext.TestName);
-            capabilities.SetCapability("build", "DotNet Se3 Legacy - " + GetBuildNumber());
+            sauceOptions.Add("build", "DotNet Se3 Legacy - " + GetBuildNumber());
         }
 
         public void StartMobileDriver(DesiredCapabilities capabilities)
