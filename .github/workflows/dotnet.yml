@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        dir: [ se3-legacy, se3last-w3c ]
+        dir: [ se3-legacy, se3last-w3c, se4-w3c ]
     steps:
       - uses: actions/checkout@v2
       - name: Setup .NET Core
