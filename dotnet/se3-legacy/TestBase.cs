@@ -44,15 +44,9 @@ namespace Se3Legacy
             sauceOptions.Add("build", "DotNet Se3 Legacy - " + GetBuildNumber());
         }
 
-        public void StartMobileDriver(DesiredCapabilities capabilities)
-        {
-            SetMobileCapabilities(capabilities);
-            _driver = new RemoteWebDriver(new Uri(Url), capabilities);
-        }
-
         public void ValidateGoogle()
         {
-            _driver.Navigate().GoToUrl("http://google.com");
+            _driver.Navigate().GoToUrl("https://google.com");
             Assert.IsTrue(_driver.Title == "Google");
         }
         
