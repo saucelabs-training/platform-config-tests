@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Appium;
-using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Remote;
 
 [assembly: Parallelize(Workers = 10, Scope = ExecutionScope.MethodLevel)]
@@ -52,26 +50,12 @@ namespace Se3Legacy
             _driver = new RemoteWebDriver(new Uri(Url), capabilities);
         }
 
-        public void StartAppiumDriver(DesiredCapabilities capabilities)
-        {
-            SetMobileCapabilities(capabilities);
-            if (ReferenceEquals(capabilities.GetCapability("platformName"), "Android"))
-                capabilities.SetCapability("appium:appWaitActivity", "com.swaglabsmobileapp.MainActivity");
-            _driver = new AndroidDriver<AndroidElement>(new Uri(Url), capabilities);
-        }
-
         public void ValidateGoogle()
         {
             _driver.Navigate().GoToUrl("http://google.com");
             Assert.IsTrue(_driver.Title == "Google");
         }
-
-        public void ValidateApp()
-        {
-            var elements = _driver.FindElements(MobileBy.AccessibilityId("test-Username"));
-            Assert.IsTrue(elements.Count == 1);
-        }
-
+        
         [TestCleanup]
         public void CleanUpAfterEveryTestMethod()
         {
