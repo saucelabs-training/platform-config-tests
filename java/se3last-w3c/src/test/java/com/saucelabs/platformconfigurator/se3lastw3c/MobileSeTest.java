@@ -41,7 +41,7 @@ public class MobileSeTest extends AbstractBaseTest {
         caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Chrome");
         caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
-        caps.setCapability("appium:platformVersion", "5.1");
+        caps.setCapability("appium:platformVersion", "6.0");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", "1.20.2");
         caps.setCapability("sauce:options", sauceOptions);

@@ -15,15 +15,15 @@ namespace Se4W3C
         private string username = Environment.GetEnvironmentVariable("SAUCE_USERNAME");
         private string accessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
         private const string Url = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
-        // private string buildTime = Environment.GetEnvironmentVariable("BUILD_TIME");
+        private string buildTime = Environment.GetEnvironmentVariable("BUILD_TIME");
         private string buildNumber = Environment.GetEnvironmentVariable("GITHUB_RUN_ID");
 
         public TestContext TestContext { get; set; }
 
-        // public string GetBuildNumber()
-        // {
-        //     return buildNumber ?? buildTime;
-        // }
+        public string GetBuildNumber()
+        {
+            return buildNumber ?? buildTime;
+        }
 
         public void StartDriver(DriverOptions options)
         {
@@ -39,7 +39,7 @@ namespace Se4W3C
             sauceOptions.Add("username", username);
             sauceOptions.Add("accessKey", accessKey);
             sauceOptions.Add("name", TestContext.TestName);
-            sauceOptions.Add("build", "DotNet Se4 - " + Environment.GetEnvironmentVariable("BUILD_TIME"));
+            sauceOptions.Add("build", "DotNet Se4 - " + GetBuildNumber());
         }
         
         public void ValidateGoogle()
