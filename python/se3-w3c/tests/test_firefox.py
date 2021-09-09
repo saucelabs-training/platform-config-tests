@@ -7,7 +7,8 @@ def test_latest_win10(helpers):
         }
     }
 
-    helpers.validate_google(capabilities)
+    driver = helpers.start_driver(capabilities)
+    helpers.validate_google(driver)
 
 def test_late_win10(helpers):
     capabilities = {
@@ -18,7 +19,8 @@ def test_late_win10(helpers):
         }
     }
 
-    helpers.validate_google(capabilities)
+    driver = helpers.start_driver(capabilities)
+    helpers.validate_google(driver)
 
 def test_early_win10(helpers):
     capabilities = {
@@ -29,7 +31,8 @@ def test_early_win10(helpers):
         }
     }
 
-    helpers.validate_google(capabilities)
+    driver = helpers.start_driver(capabilities)
+    helpers.validate_google(driver)
 
 def test_latest_win7(helpers):
     capabilities = {
@@ -40,7 +43,8 @@ def test_latest_win7(helpers):
         }
     }
 
-    helpers.validate_google(capabilities)
+    driver = helpers.start_driver(capabilities)
+    helpers.validate_google(driver)
 
 def test_late_win7(helpers):
     capabilities = {
@@ -51,7 +55,8 @@ def test_late_win7(helpers):
         }
     }
 
-    helpers.validate_google(capabilities)
+    driver = helpers.start_driver(capabilities)
+    helpers.validate_google(driver)
 
 def test_early_win7(helpers):
     capabilities = {
@@ -62,7 +67,8 @@ def test_early_win7(helpers):
         }
     }
 
-    helpers.validate_google(capabilities)
+    driver = helpers.start_driver(capabilities)
+    helpers.validate_google(driver)
 
 def test_latest_big_sur(helpers):
     capabilities = {
@@ -73,7 +79,8 @@ def test_latest_big_sur(helpers):
         }
     }
 
-    helpers.validate_google(capabilities)
+    driver = helpers.start_driver(capabilities)
+    helpers.validate_google(driver)
 
 def test_late_big_sur(helpers):
     capabilities = {
@@ -84,7 +91,8 @@ def test_late_big_sur(helpers):
         }
     }
 
-    helpers.validate_google(capabilities)
+    driver = helpers.start_driver(capabilities)
+    helpers.validate_google(driver)
 
 def test_early_big_sur(helpers):
     capabilities = {
@@ -95,6 +103,5 @@ def test_early_big_sur(helpers):
         }
     }
 
-    helpers.validate_google(capabilities)
-
-
+    driver = helpers.start_driver(capabilities)
+    helpers.validate_google(driver)

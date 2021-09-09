@@ -34,16 +34,6 @@ class Helpers:
 
         caps['sauce:options']['name'] = sys._getframe(1).f_code.co_name
         caps['sauce:options']['build'] = 'Python Se4 W3C - {}'.format(os.environ.get("BUILD_TIME"))
-        return webdriver.Remote(remote_url, desired_capabilities=caps)
-
-    @staticmethod
-    def start_mobile_driver(caps):
-        sauce_username = os.environ["SAUCE_USERNAME"]
-        sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
-        remote_url = "http://{}:{}@ondemand.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
-
-        caps['sauce:options']['name'] = sys._getframe(1).f_code.co_name
-        caps['sauce:options']['build'] = 'Python Se4 W3C - {}'.format(os.environ.get("BUILD_TIME"))
 
         return webdriver.Remote(remote_url, desired_capabilities=caps)
 

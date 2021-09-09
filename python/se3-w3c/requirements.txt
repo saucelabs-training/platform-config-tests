@@ -1,4 +1,5 @@
-selenium==3.11.0
+selenium==3.14.0
 pytest
 flake8
 pytest-xdist
+Appium-Python-Client==0.24

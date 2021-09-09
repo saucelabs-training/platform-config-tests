@@ -7,7 +7,8 @@ def test_win10(helpers):
         }
     }
 
-    helpers.validate_google(capabilities)
+    driver = helpers.start_driver(capabilities)
+    helpers.validate_google(driver)
 
 def test_late_win7(helpers):
     capabilities = {
@@ -18,7 +19,8 @@ def test_late_win7(helpers):
         }
     }
 
-    helpers.validate_google(capabilities)
+    driver = helpers.start_driver(capabilities)
+    helpers.validate_google(driver)
 
 def test_early_win7(helpers):
     capabilities = {
@@ -29,4 +31,5 @@ def test_early_win7(helpers):
         }
     }
 
-    helpers.validate_google(capabilities)
+    driver = helpers.start_driver(capabilities)
+    helpers.validate_google(driver)
