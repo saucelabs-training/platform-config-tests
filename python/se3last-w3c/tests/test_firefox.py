@@ -103,7 +103,5 @@ def test_early_big_sur(helpers):
         }
     }
 
-    helpers.validate_google(capabilities)
-
     driver = helpers.start_driver(capabilities)
     helpers.validate_google(driver)
