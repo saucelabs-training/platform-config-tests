@@ -8,7 +8,7 @@ using OpenQA.Selenium.Appium.iOS;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 
-[assembly: Parallelize(Workers = 10, Scope = ExecutionScope.MethodLevel)]
+[assembly: Parallelize(Workers = 20, Scope = ExecutionScope.MethodLevel)]
 
 namespace Se3LastW3C
 {

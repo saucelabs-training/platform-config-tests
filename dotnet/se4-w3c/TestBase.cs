@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
-[assembly: Parallelize(Workers = 10, Scope = ExecutionScope.MethodLevel)]
+[assembly: Parallelize(Workers = 20, Scope = ExecutionScope.MethodLevel)]
 
 namespace Se4W3C
 {
