@@ -7,7 +7,7 @@ def test_latest_android_latest_appium(helpers):
     caps['sauce:options'] = {}
     caps['sauce:options']['appiumVersion'] = '1.20.2'
 
-    driver = helpers.start_driver(caps)
+    driver = helpers.start_mobile_driver(caps)
     helpers.validate_google(driver)
 
 def test_latest_android_earliest_appium(helpers):
@@ -19,7 +19,7 @@ def test_latest_android_earliest_appium(helpers):
     caps['sauce:options'] = {}
     caps['sauce:options']['appiumVersion'] = '1.15.0'
 
-    driver = helpers.start_driver(caps)
+    driver = helpers.start_mobile_driver(caps)
     helpers.validate_google(driver)
 
 def test_earliest_android_latest_appium(helpers):
@@ -31,7 +31,7 @@ def test_earliest_android_latest_appium(helpers):
     caps['sauce:options'] = {}
     caps['sauce:options']['appiumVersion'] = '1.20.2'
 
-    driver = helpers.start_driver(caps)
+    driver = helpers.start_mobile_driver(caps)
     helpers.validate_google(driver)
 
 def test_earliest_android_earliest_appium(helpers):
@@ -43,7 +43,7 @@ def test_earliest_android_earliest_appium(helpers):
     caps['sauce:options'] = {}
     caps['sauce:options']['appiumVersion'] = '1.8.0'
 
-    driver = helpers.start_driver(caps)
+    driver = helpers.start_mobile_driver(caps)
     helpers.validate_google(driver)
 
 def test_latest_ios(helpers):
@@ -55,7 +55,7 @@ def test_latest_ios(helpers):
     caps['sauce:options'] = {}
     caps['sauce:options']['appiumVersion'] = '1.21.0'
 
-    driver = helpers.start_driver(caps)
+    driver = helpers.start_mobile_driver(caps)
     helpers.validate_google(driver)
 
 def test_earliest_ios(helpers):
@@ -67,5 +67,5 @@ def test_earliest_ios(helpers):
     caps['sauce:options'] = {}
     caps['sauce:options']['appiumVersion'] = '1.8.0'
 
-    driver = helpers.start_driver(caps)
+    driver = helpers.start_mobile_driver(caps)
     helpers.validate_google(driver)

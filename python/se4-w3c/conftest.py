@@ -27,7 +27,18 @@ class Helpers:
         driver.execute_script("sauce:job-result={}".format(result))
 
     @staticmethod
-    def start_driver(caps):
+    def start_driver(options):
+        sauce_username = os.environ["SAUCE_USERNAME"]
+        sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
+        remote_url = "http://{}:{}@ondemand.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
+
+        options.capabilities['sauce:options']['name'] = sys._getframe(1).f_code.co_name
+        options.capabilities['sauce:options']['build'] = 'Python Se4 W3C - {}'.format(os.environ.get("BUILD_TIME"))
+
+        driver = webdriver.Remote(remote_url, options=options)
+        return driver
+
+    def start_mobile_driver(caps):
         sauce_username = os.environ["SAUCE_USERNAME"]
         sauce_access_key = os.environ["SAUCE_ACCESS_KEY"]
         remote_url = "http://{}:{}@ondemand.saucelabs.com/wd/hub".format(sauce_username, sauce_access_key)
@@ -46,7 +57,7 @@ class Helpers:
         caps['sauce:options']['name'] = sys._getframe(1).f_code.co_name
         caps['sauce:options']['build'] = 'Python Se4 W3C - {}'.format(os.environ.get("BUILD_TIME"))
 
-        return appiumdriver.Remote(remote_url, desired_capabilities=caps)
+        return appiumdriver.Remote(remote_url, caps)
 
 @pytest.fixture
 def helpers():
