@@ -15,5 +15,5 @@ end
 
 desc 'Run mobile tests in parallel'
 task :mobile do
-  system 'parallel_split_test spec/mobile_*_spec.rb'
+  system 'parallel_split_test -P spec/android_*_spec.rb,spec/ios_spec.rb'
 end
