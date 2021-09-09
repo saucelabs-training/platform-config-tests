@@ -2,19 +2,20 @@ package com.saucelabs.platformconfigurator.appium6;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebElement;
 
 public class MobileBrowserTest extends AbstractBaseTest {
 
     @Test
-    @Disabled("Android versions 10+ have Chrome versions defaulting to w3c, which Appium 6 doesn't handle properly")
-    public void latestAndroidLatestAppiumBrowser() {
+    public void latestAndroidLatestAppium() {
+        MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Chrome");
-        caps.setCapability("appium:deviceName", "Google Pixel 3a GoogleAPI Emulator");
-        caps.setCapability("appium:platformVersion", "11.0");
+        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
+        caps.setCapability("appium:platformVersion", "9.0");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", "1.20.2");
         caps.setCapability("sauce:options", sauceOptions);
 
@@ -23,12 +24,13 @@ public class MobileBrowserTest extends AbstractBaseTest {
     }
 
     @Test
-    @Disabled("Android versions 10+ have Chrome versions defaulting to w3c, which Appium 6 doesn't handle properly")
-    public void latestAndroidEarliestAppiumBrowser() {
+    public void latestAndroidEarliestAppium() {
+        MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Chrome");
-        caps.setCapability("appium:deviceName", "Google Pixel 3a GoogleAPI Emulator");
-        caps.setCapability("appium:platformVersion", "11.0");
+        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
+        caps.setCapability("appium:platformVersion", "9.0");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", "1.15.0");
         caps.setCapability("sauce:options", sauceOptions);
 
@@ -37,11 +39,13 @@ public class MobileBrowserTest extends AbstractBaseTest {
     }
 
     @Test
-    public void earliestAndroidLatestAppiumBrowser() {
+    public void earliestAndroidLatestAppium() {
+        MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Browser");
-        caps.setCapability("appium:deviceName", "Android Emulator");
+        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "5.1");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", "1.20.2");
         caps.setCapability("sauce:options", sauceOptions);
 
@@ -50,11 +54,13 @@ public class MobileBrowserTest extends AbstractBaseTest {
     }
 
     @Test
-    public void earliestAndroidEarliestAppiumBrowser() {
+    public void earliestAndroidEarliestAppium() {
+        MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Browser");
-        caps.setCapability("appium:deviceName", "Android Emulator");
+        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "5.1");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", "1.8.0");
         caps.setCapability("sauce:options", sauceOptions);
 
@@ -63,12 +69,14 @@ public class MobileBrowserTest extends AbstractBaseTest {
     }
 
     @Test
-    public void latestIOSBrowser() {
+    public void latestIOS() {
+        MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
         caps.setCapability("browserName", "Safari");
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         caps.setCapability("appium:platformVersion", "14.5");
-        sauceOptions.setCapability("appiumVersion", "1.20.1");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
+        sauceOptions.setCapability("appiumVersion", "1.21.0");
         caps.setCapability("sauce:options", sauceOptions);
 
         driver = startIOSDriver(caps);
@@ -76,12 +84,14 @@ public class MobileBrowserTest extends AbstractBaseTest {
     }
 
     @Test
-    public void earliestIOSBrowser() {
+    public void earliestIOS() {
+        MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
         caps.setCapability("browserName", "Safari");
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         caps.setCapability("appium:platformVersion", "10.3");
-        sauceOptions.setCapability("appiumVersion", "1.8.0");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
+        sauceOptions.setCapability("appiumVersion", "1.9.1");
         caps.setCapability("sauce:options", sauceOptions);
 
         driver = startIOSDriver(caps);

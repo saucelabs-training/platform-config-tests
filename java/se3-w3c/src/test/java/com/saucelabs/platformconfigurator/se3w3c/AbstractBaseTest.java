@@ -1,30 +1,43 @@
 package com.saucelabs.platformconfigurator.se3w3c;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.RegisterExtension;
+import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 public class AbstractBaseTest {
     RemoteWebDriver driver;
     String username = System.getenv("SAUCE_USERNAME");
     String accessKey = System.getenv("SAUCE_ACCESS_KEY");
-    String sauceUrl = "https://" + username + ":" + accessKey + "@ondemand.us-west-1.saucelabs.com/wd/hub";
-    MutableCapabilities sauceOptions = new MutableCapabilities();
+    String sauceUrl = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
     public static final String TIME = String.valueOf(System.currentTimeMillis());
+    String buildName;
+    String testName;
+
+    @RegisterExtension
+    public SauceTestWatcher watcher = new SauceTestWatcher();
 
     @BeforeEach
-    public void setName(TestInfo testInfo) {
-        sauceOptions.setCapability("name", testInfo.getDisplayName());
-        sauceOptions.setCapability("build", "Java Se3 W3C - " + TIME);
+    public void setup(TestInfo testInfo) {
+        this.testName = testInfo.getDisplayName();
+        this.buildName = "Java Se3 W3C - " + TIME;
     }
 
     public void startDriver(MutableCapabilities caps) {
+        MutableCapabilities sauceOptions = (MutableCapabilities) caps.getCapability("sauce:options");
+
+        sauceOptions.setCapability("username", username);
+        sauceOptions.setCapability("accessKey", accessKey);
+        sauceOptions.setCapability("name", testName);
+        sauceOptions.setCapability("build", buildName);
+
         try {
             driver = new RemoteWebDriver(new URL(sauceUrl), caps);
         } catch (MalformedURLException e) {
@@ -40,16 +53,24 @@ public class AbstractBaseTest {
             e.printStackTrace();
         }
 
-        if (driver.getTitle().equals("Google")) {
-            driver.executeScript("sauce:job-result=passed");
-        } else {
-            driver.executeScript("sauce:job-result=failed");
-            fail("Unable to navigate");
-        }
+        assertEquals("Google", driver.getTitle());
     }
 
-    @AfterEach
-    public void quitDriver() {
-        driver.quit();
+    public class SauceTestWatcher implements TestWatcher {
+        @Override
+        public void testSuccessful(ExtensionContext context) {
+            if (driver != null) {
+                driver.executeScript("sauce:job-result=passed");
+                driver.quit();
+            }
+        }
+
+        @Override
+        public void testFailed(ExtensionContext context, Throwable cause) {
+            if (driver != null) {
+                driver.executeScript("sauce:job-result=failed");
+                driver.quit();
+            }
+        }
     }
 }

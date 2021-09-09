@@ -3,6 +3,9 @@ package com.saucelabs.platformconfigurator.se4w3c;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.RegisterExtension;
+import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -12,6 +15,10 @@ import java.net.URL;
 import static org.junit.jupiter.api.Assertions.fail;
 public class AbstractBaseTest {
     RemoteWebDriver driver;
+
+    @RegisterExtension
+    public SauceTestWatcher watcher = new SauceTestWatcher();
+
     String username = System.getenv("SAUCE_USERNAME");
     String accessKey = System.getenv("SAUCE_ACCESS_KEY");
     String sauceUrl = "https://" + username + ":" + accessKey + "@ondemand.us-west-1.saucelabs.com/wd/hub";
@@ -49,8 +56,17 @@ public class AbstractBaseTest {
         }
     }
 
-    @AfterEach
-    public void quitDriver() {
-        driver.quit();
+    public class SauceTestWatcher implements TestWatcher {
+        @Override
+        public void testSuccessful(ExtensionContext context) {
+            driver.executeScript("sauce:job-result=passed");
+            driver.quit();
+        }
+
+        @Override
+        public void testFailed(ExtensionContext context, Throwable cause) {
+            driver.executeScript("sauce:job-result=failed");
+            driver.quit();
+        }
     }
 }

@@ -2,8 +2,8 @@ package com.saucelabs.platformconfigurator.appiumlatestse3;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebElement;
 
 public class MobileAppTest extends AbstractBaseTest {
@@ -12,10 +12,12 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void latestAndroidLatestAppium() {
+        MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "Android");
         caps.setCapability("appium:app", android);
-        caps.setCapability("appium:deviceName", "Google Pixel 3a GoogleAPI Emulator");
+        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "11.0");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", "1.20.2");
         caps.setCapability("sauce:options", sauceOptions);
 
@@ -25,11 +27,13 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void latestAndroidEarliestAppium() {
+        MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "Android");
         caps.setCapability("appium:app", android);
         caps.setCapability("appium:deviceName", "Google Pixel 3a GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "11.0");
-        sauceOptions.setCapability("appiumVersion", "1.15.0");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
+        sauceOptions.setCapability("appiumVersion", "1.20.2");
         caps.setCapability("sauce:options", sauceOptions);
 
         driver = startAndroidDriver(caps);
@@ -38,10 +42,12 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void earliestAndroidLatestAppium() {
+        MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "Android");
         caps.setCapability("appium:app", android);
-        caps.setCapability("appium:deviceName", "Android Emulator");
+        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "5.1");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", "1.20.2");
         caps.setCapability("sauce:options", sauceOptions);
 
@@ -51,11 +57,13 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void earliestAndroidEarliestAppium() {
+        MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "Android");
         caps.setCapability("appium:app", android);
-        caps.setCapability("appium:deviceName", "Android Emulator");
+        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "5.1");
-        sauceOptions.setCapability("appiumVersion", "1.8.0");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
+        sauceOptions.setCapability("appiumVersion", "1.20.2");
         caps.setCapability("sauce:options", sauceOptions);
 
         driver = startAndroidDriver(caps);
@@ -64,11 +72,13 @@ public class MobileAppTest extends AbstractBaseTest {
 
     @Test
     public void latestIOS() {
+        MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
         caps.setCapability("appium:app", ios);
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         caps.setCapability("appium:platformVersion", "14.5");
-        sauceOptions.setCapability("appiumVersion", "1.20.1");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
+        sauceOptions.setCapability("appiumVersion", "1.21.0");
         caps.setCapability("sauce:options", sauceOptions);
 
         driver = startIOSDriver(caps);
@@ -76,25 +86,13 @@ public class MobileAppTest extends AbstractBaseTest {
     }
 
     @Test
-    @Disabled("10.3 does not want to load app and this test takes forever to fail")
-    public void earliestIOSStated() {
-        caps.setCapability("platformName", "iOS");
-        caps.setCapability("appium:app", ios);
-        caps.setCapability("appium:deviceName", "iPhone Simulator");
-        caps.setCapability("appium:platformVersion", "10.3");
-        sauceOptions.setCapability("appiumVersion", "1.8.0");
-        caps.setCapability("sauce:options", sauceOptions);
-
-        driver = startIOSDriver(caps);
-        validateApp((IOSDriver<WebElement>) driver);
-    }
-
-    @Test
-    public void earliestIOSActual() {
+    public void earliestIOS() {
+        MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
         caps.setCapability("appium:app", ios);
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         caps.setCapability("appium:platformVersion", "11.0");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", "1.8.0");
         caps.setCapability("sauce:options", sauceOptions);
 
