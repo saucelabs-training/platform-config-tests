@@ -6,3 +6,36 @@ The tests are based on manual copy/pasting of current or future generated code.
 
 This project is not intended for public use or contributions, but since it may be instructive for executing basic tests on 
 Sauce Labs based on Platform Configurator code, it is made available with an open source license. See [LICENSE.txt](LICENSE.txt)
+
+## Language Version Details
+
+Minimum Version to get a working session (does not guarantee desired functionality):
+
+| Language | JWP/Legacy | W3C | Mobile/Appium | Mobile/Selenium |
+|---|---|---|---|---|
+| Java | 3.0 | 3.6 | 6.0.0 | 3.12.0 |
+| Python | 3.0 | 3.0 | 0.22 | 3.0 |
+| Ruby | 3.0 (3.6 for Safari) | 3.4.2 | 9.11.1 | 3.5.0 |
+| .NET | 3.0 (3.6 for Core) | 3.11 | 4.0.0 | 3.141.0 |
+
+Notes:
+* Python uses Hashes instead of Objects for Selenium 3, so any version will start a session with provided syntax, 
+  but earlier versions are unlikely to support desired functionality. 
+  
+Selenium 4 Issues:
+* Java: Options class works the same in Java 3.6 - 4.0
+* Python: Moves from Dictionary to Options class
+* .NET: Changes from AddAdditionalCapability to AddAdditionalOption when adding Sauce Options
+* Ruby: Uses :capabilities instead of :desired_capabilities; Options class supports w3c commands as well
+
+Appium Issues with Selenium 4:
+* Java: Latest version does not work
+* Python: Beta version works
+* Ruby: Unmerged Branch of project works; investigate adding direct Options support
+* .NET: Does not currently work
+
+## Additional Issues
+* Appium Capabilities for .NET do not support Selenium classes; need to use Appium Option objects
+* An app can't be loaded iOS 10.3 (requires 11.0)
+* Mobile Browser with Appium 1.8.0 can't send timeout commands without failing (requires 1.9.1)
+* On older versions of Firefox, Sauce Labs defaults to older versions of geckodriver, which aren't compatible with Selenium 4.
